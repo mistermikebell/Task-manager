@@ -26,7 +26,7 @@ SECRET_KEY = 'w62j07*ji$4p3)w5l+%4y2#f^-9e6!ek)+ea)1)^kyuf1w7kho'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['task-manager-2021.herokuapp.com']
 
 
 # Application definition
