@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-28 22:13+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: task_manager/templates/base.html:42 task_manager/views.py:7
+msgid "Task manager"
+msgstr "Менеджер задач"
+
+#: task_manager/templates/base.html:50
+msgid "Create a task"
+msgstr "Создать задачу"
+
+#: task_manager/templates/base.html:53
+msgid "Users list"
+msgstr "Список пользователей"
+
+#: task_manager/templates/base.html:61
+msgid "Edit profile"
+msgstr "Редактировать профиль"
+
+#: task_manager/templates/base.html:62
+msgid "Logout"
+msgstr "Выйти"
+
+#: task_manager/templates/base.html:67
+msgid "Login"
+msgstr "Вход"
+
+#: task_manager/templates/base.html:70
+msgid "Sign up"
+msgstr "Регистрация"
+
+#: task_manager/templates/index.html:7
+msgid "Add your tasks and manage them in a very simple way"
+msgstr "Добавляйте свои задачи и управляйте ими"
+
+#: task_manager/templates/index.html:12
+msgid "My tasks"
+msgstr "Мои задачи"
+
+#: task_manager/templates/index.html:16
+msgid "Add a new task"
+msgstr "Добавь новую задачу"
+
+#: task_manager/templates/index.html:24
+msgid "Active"
+msgstr "Текущие"
+
+#: task_manager/templates/index.html:27
+msgid "Backlog"
+msgstr "В ожидании"
+
+#: task_manager/templates/index.html:30
+msgid "Completed"
+msgstr "Завершенные"
+
+#: task_manager/templates/index.html:39
+msgid "Feb 2021"
+msgstr "Февраль 2021"
+
+#~ msgid "Tasks"
+#~ msgstr "Задачи"
+
+#~ msgid "Task 1"
+#~ msgstr "Задача 1"
+
+#~ msgid "Task 2"
+#~ msgstr "Задача 2"
+
+#, fuzzy
+#~| msgid "Sign up"
+#~ msgid "Sign Up"
+#~ msgstr "Регистрация"
+
+#~ msgid "Home"
+#~ msgstr "Главная"
