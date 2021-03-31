@@ -2,3 +2,4 @@ django
 gunicorn
 python-dotenv
 django-crispy-forms
+django_heroku
