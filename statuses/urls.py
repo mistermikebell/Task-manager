@@ -1,5 +1,5 @@
 from django.urls import path, include
-from task_manager.statuces import views
+from statuses import views
 
 
 urlpatterns = [

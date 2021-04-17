@@ -1,5 +1,5 @@
 from django.urls import path, include
-from task_manager.users import views
+from users import views
 
 
 urlpatterns = [

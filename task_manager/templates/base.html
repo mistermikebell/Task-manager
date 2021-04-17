@@ -50,16 +50,10 @@
               <a class="nav-link" href="{% url 'tasks_list' %}">{% trans "Tasks" %}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'users' %}">{% trans "Users" %}</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{% url 'statuses_list' %}">{% trans "Statuses" %}</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'labels_list' %}">{% trans "Labels" %}</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'statuses_list' %}">{% trans "Statuses" %}</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,6 +65,9 @@
               </ul>
             </li>
             {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users' %}">{% trans "Users" %}</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'login' %}">{% trans "Login" %}</a>
             </li>

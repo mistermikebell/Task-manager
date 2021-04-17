@@ -6,7 +6,7 @@ from django.views import generic
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.utils.translation import gettext
-from task_manager.statuces.models import Status
+from statuses.models import Status
 
 
 class StatusCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):

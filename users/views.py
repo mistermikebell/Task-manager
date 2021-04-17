@@ -6,7 +6,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
 from django.urls import reverse_lazy
 from django.utils.translation import gettext
-from task_manager.users.forms import SignUpForm
+from users.forms import SignUpForm
 
 
 class RegisterUser(SuccessMessageMixin, generic.CreateView):
