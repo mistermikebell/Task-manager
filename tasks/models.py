@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from task_manager.statuces.models import Status
+from statuses.models import Status
 from labels.models import Label
 
 

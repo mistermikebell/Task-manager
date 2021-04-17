@@ -9,8 +9,6 @@ from django.utils.translation import gettext
 from django_filters.views import FilterView
 from tasks.models import Task
 from tasks.filters import TasksFilter
-from task_manager.statuces.models import Status
-from django.contrib.auth.models import User
 
 
 class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from task_manager.statuces.models import Status
+from statuses.models import Status
 
 
 class AuthorAdmin(admin.ModelAdmin):

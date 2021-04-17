@@ -9,14 +9,16 @@ from django.utils.translation import gettext
 from users.forms import SignUpForm
 
 
-class RegisterUser(SuccessMessageMixin, generic.CreateView):
-    form_class = SignUpForm
+class RegisterUserView(SuccessMessageMixin, generic.CreateView):
+    model = User
+    fields = ['username', 'name', 'surname', 'email', 'password1', 'password2']
+    #form_class = SignUpForm
     template_name = 'registration/register.html'
     success_url = reverse_lazy('home')
     success_message = gettext('You have been signed up!')
 
 
-class UsersList(LoginRequiredMixin, generic.ListView):
+class UsersListView(LoginRequiredMixin, generic.ListView):
     model = User
     template_name = 'users.html'
     context_object_name = 'users_list'
@@ -28,7 +30,7 @@ class UsersList(LoginRequiredMixin, generic.ListView):
         return redirect_to_login(self.request.get_full_path(), 'login/', '')
 
 
-class UpdateUser(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
+class UpdateUserView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     model = User
     template_name = 'registration/update.html'
     fields = ['username', 'email', 'password']
@@ -41,7 +43,7 @@ class UpdateUser(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
         return ''
 
 
-class DeleteUser(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
+class DeleteUserView(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
     model = User
     success_url = reverse_lazy('home')
     template_name = 'registration/delete.html'

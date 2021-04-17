@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('statuces', '0003_auto_20210407_1821'),
+        ('statuses', '0003_auto_20210407_1821'),
         ('tasks', '0002_remove_task_status'),
     ]
 
