@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% block content %}
+<br>
+<h3>{% trans 'Statuses list' %}</h3>
+
+<br>
+<a href="{% url 'status_creation' %}" class="btn btn-primary">{% trans 'Create a new status' %}</a>
+<br>
+<br>
+{% if statuses_list %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>{% trans 'Name' %}</th>
+      <th>{% trans 'Created by' %}</th>
+      <th>{% trans 'Date created' %}</th>
+      <th>{% trans 'Updated by' %}</th>
+      <th>{% trans 'Date updated' %}</th>
+      <th>{% trans 'Change' %}</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for object in statuses_list %}
+      <tr>
+          <td>{{ object.status }}</td>
+          <td>{{ object.creator }}</td>
+          <td>{{ object.date_created }}</td>
+          <td>{{ object.editor }}</td>
+          <td>{{ object.date_updated }}</td>
+          <td>
+              <a class="dropdown-item" href="{% url 'status_update' object.id %}">{% trans 'Update' %}</a>
+              <a class="dropdown-item" href="{% url 'status_delete' object.id %}">{% trans 'Delete' %}</a>
+          </td>
+      </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+    <p>There are no statuses.</p>
+{% endif %}
+
+{% endblock %}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Имя</th>
+      <th>Дата создания</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <tr>
+        <td>3</td>
+        <td>завершен</td>
+        <td>11.01.2021 12:11</td>
+        <td>
+          <a href="/statuses/3/update/">Изменить</a>
+          <br>
+          <a href="/statuses/3/delete/">Удалить</a>
+        </td>
+      </tr>
+  </tbody>
+</table>

@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block content %}
+<br>
+<h3>{% trans 'Tasks list' %}</h3>
+
+<br>
+<a href="{% url 'task_creation' %}" class="btn btn-primary">{% trans 'Create a new task' %}</a>
+<br>
+<br>
+{% if tasks_list %}
+
+<!--
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>{% trans 'Task' %}</th>
+      <th>{% trans 'Status' %}</th>
+      <th>{% trans 'Author' %}</th>
+      <th>{% trans 'Editor' %}</th>
+      <th>{% trans 'Date updated' %}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for object in tasks_list %}
+      <tr>
+          <td>{{ object.task }}</td>
+          <td>{{ object.status }}</td>
+          <td>{{ object.author }}</td>
+          <td>{{ object.last_editor }}</td>
+          <td>{{ object.date_updated }}</td>
+          <td>
+              <a class="dropdown-item" href="{% url 'task_update' object.id %}">{% trans 'Update' %}</a>
+              <a class="dropdown-item" href="{% url 'task_delete' object.id %}">{% trans 'Delete' %}</a>
+          </td>
+      </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+-->
+
+
+
+<form method="get">
+        {{ filter.form|crispy }}
+        <input type="submit" />
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>{% trans 'Task' %}</th>
+      <th>{% trans 'Status' %}</th>
+      <th>{% trans 'Author' %}</th>
+      <th>{% trans 'Editor' %}</th>
+      <th>{% trans 'Date updated' %}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for object in filter.qs %}
+      <tr>
+          <td>{{ object.task }}</td>
+          <td>{{ object.status }}</td>
+          <td>{{ object.author }}</td>
+          <td>{{ object.last_editor }}</td>
+          <td>{{ object.date_updated }}</td>
+          <td>
+              <a class="dropdown-item" href="{% url 'task_update' object.id %}">{% trans 'Update' %}</a>
+              <a class="dropdown-item" href="{% url 'task_delete' object.id %}">{% trans 'Delete' %}</a>
+          </td>
+      </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+
+{% else %}
+    <p>{% trans 'There are no tasks.' %}</p>
+{% endif %}
+
+{% endblock %}

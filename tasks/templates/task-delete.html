@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <p>{% trans "Are you sure you want to delete task" %} {{ object.task }}?</p>
+        <input type="submit" value="{% trans 'Confirm' %}">
+{% endblock %}

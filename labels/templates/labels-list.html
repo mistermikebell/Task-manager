@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% block content %}
+<br>
+<h3>{% trans 'Labels list' %}</h3>
+
+<br>
+<a href="{% url 'label_creation' %}" class="btn btn-primary">{% trans 'Create a new label' %}</a>
+<br>
+<br>
+{% if labels_list %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>{% trans 'Label' %}</th>
+      <th>{% trans 'Description' %}</th>
+      <th>{% trans 'Date created' %}</th>
+      <th>{% trans 'Date updated' %}</th>
+      <th>{% trans 'Change' %}</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for object in labels_list %}
+      <tr>
+          <td>{{ object.label }}</td>
+          <td>{{ object.description }}</td>
+          <td>{{ object.date_created }}</td>
+          <td>{{ object.date_updated }}</td>
+          <td>
+              <a class="dropdown-item" href="{% url 'label_update' object.id %}">{% trans 'Update' %}</a>
+              <a class="dropdown-item" href="{% url 'label_delete' object.id %}">{% trans 'Delete' %}</a>
+          </td>
+      </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+    <p>{% trans 'There are no labels.' %}</p>
+{% endif %}
+
+{% endblock %}
