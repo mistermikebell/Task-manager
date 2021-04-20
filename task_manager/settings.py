@@ -1,4 +1,6 @@
 import django_heroku
+import os
+import dj_database_url
 
 from pathlib import Path
 
@@ -9,12 +11,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2jsrs&y4)k%4tn*q)+-rx$74!-w1rt5479s%64pj%6op@l)nxk'
+#SECRET_KEY = '2jsrs&y4)k%4tn*q)+-rx$74!-w1rt5479s%64pj%6op@l)nxk'
+
+SECRET_KEY = os.environ.get('ba18ae18-4588-4f94-86e1-4c537dcec505')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'task-manager-2021.herokuapp.com']
 
 
 # Application definition
@@ -76,6 +80,9 @@ DATABASES = {
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -124,3 +131,5 @@ LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 django_heroku.settings(locals())
+options = DATABASES['default'].get('OPTIONS', {})
+options.pop('sslmode', None)
