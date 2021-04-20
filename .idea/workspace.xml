@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="step 7 Filtering v2">
+    <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="step 7 Filtering v3">
+      <change afterPath="$PROJECT_DIR$/labels/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/labels/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statuses/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statuses/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/migrations/0008_auto_20210419_2140.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/migrations/0009_auto_20210420_1901.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/migrations/0010_auto_20210420_1903.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/migrations/0011_auto_20210420_1906.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/migrations/0012_auto_20210420_1908.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/migrations/0013_auto_20210420_1917.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/migrations/0014_auto_20210420_1919.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labels/templates/label-creation.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/labels/label-creation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labels/templates/label-delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/labels/label-delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labels/templates/label-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/labels/label-update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labels/templates/labels-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/labels/labels-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labels/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/labels/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statuses/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statuses/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statuses/templates/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/statuses/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statuses/templates/status-creation.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/statuses/status-creation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statuses/templates/statuses.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/statuses/statuses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statuses/templates/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/statuses/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statuses/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_manager/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_manager/locale/ru/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task_manager/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/static/users/signin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_manager/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_manager/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/filters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tasks/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tasks/migrations/0003_task_status.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/migrations/0003_task_status.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/templates/task-creation.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/tasks/task-creation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/templates/task-delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/tasks/task-delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/templates/task-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/tasks/task-update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/templates/tasks-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/tasks/tasks-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" afterPath="$PROJECT_DIR$/users/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/locale/ru/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/users/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/registration/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/registration/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/registration/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/registration/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/registration/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/users/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +70,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1oq9gwHceHw96gSx9ZVhh9JsZh5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,22 +87,23 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/labels" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tasks" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tasks" />
+      <recent name="$PROJECT_DIR$/statuses" />
       <recent name="$PROJECT_DIR$/labels" />
       <recent name="$PROJECT_DIR$/task_manager/statuces/templates" />
       <recent name="$PROJECT_DIR$/task_manager/statuces" />
-      <recent name="$PROJECT_DIR$/task_manager/users/templates/registration" />
-      <recent name="$PROJECT_DIR$/task_manager/users/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/task_manager" />
-      <recent name="$PROJECT_DIR$/task_manager/users/templates/registration" />
-      <recent name="$PROJECT_DIR$/task_manager/users/static/users" />
+      <recent name="$PROJECT_DIR$/task_manager/templates" />
+      <recent name="$PROJECT_DIR$/task_manager/templates/users" />
+      <recent name="$PROJECT_DIR$/task_manager/templates/statuses" />
+      <recent name="$PROJECT_DIR$/task_manager/templates/tasks" />
+      <recent name="$PROJECT_DIR$/task_manager/templates/labels" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -128,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618662495388</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="step 7 Filtering v3">
+      <created>1618663731948</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1618663731948</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +209,7 @@
     <MESSAGE value="step 3 Authentication v4" />
     <MESSAGE value="step 7 Filtering" />
     <MESSAGE value="step 7 Filtering v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="step 7 Filtering v2" />
+    <MESSAGE value="step 7 Filtering v3" />
+    <option name="LAST_COMMIT_MESSAGE" value="step 7 Filtering v3" />
   </component>
 </project>

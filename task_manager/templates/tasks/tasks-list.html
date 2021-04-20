@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load crispy_forms_tags %}
+
 {% load i18n %}
 {% block content %}
 <br>
@@ -12,43 +12,14 @@
 <br>
 {% if tasks_list %}
 
-<!--
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>{% trans 'Task' %}</th>
-      <th>{% trans 'Status' %}</th>
-      <th>{% trans 'Author' %}</th>
-      <th>{% trans 'Editor' %}</th>
-      <th>{% trans 'Date updated' %}</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for object in tasks_list %}
-      <tr>
-          <td>{{ object.task }}</td>
-          <td>{{ object.status }}</td>
-          <td>{{ object.author }}</td>
-          <td>{{ object.last_editor }}</td>
-          <td>{{ object.date_updated }}</td>
-          <td>
-              <a class="dropdown-item" href="{% url 'task_update' object.id %}">{% trans 'Update' %}</a>
-              <a class="dropdown-item" href="{% url 'task_delete' object.id %}">{% trans 'Delete' %}</a>
-          </td>
-      </tr>
-
-  {% endfor %}
-  </tbody>
-</table>
--->
-
-
-
-<form method="get">
-        {{ filter.form|crispy }}
-        <input type="submit" />
-</form>
+<div class="card mb-3">
+  <div class="card-body bg-light">
+    <form class="form-inline center" method="get">
+      {{ filter.form }}
+      <input type="submit" />
+    </form>
+  </div>
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -84,3 +55,4 @@
 {% endif %}
 
 {% endblock %}
+

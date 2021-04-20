@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-31 11:17+0300\n"
+"POT-Creation-Date: 2021-04-20 22:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,63 +20,51 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/users/templates/registration/delete.html:7
-msgid "Are you sure you want to delete your account?"
-msgstr "Вы уверены, что хотите удалить свой аккаунт?"
-
-#: task_manager/users/templates/registration/delete.html:8
-msgid "Confirm"
-msgstr "Потвердить"
-
-#: task_manager/users/templates/registration/login.html:11
-msgid "Login"
-msgstr "Войти"
-
-#: task_manager/users/templates/registration/register.html:8
-msgid "Please sign in"
-msgstr "Пожалуйста, зарегистрируйтесь"
-
-#: task_manager/users/templates/registration/register.html:11
-msgid "Sign in"
-msgstr "Зарегистрироваться"
-
-#: task_manager/users/templates/registration/update.html:8
-msgid "Update profile information"
-msgstr "Обновление профиля"
-
-#: task_manager/users/templates/registration/update.html:14
-msgid "Delete my profile"
-msgstr "Удалить мой профиль"
-
-#: task_manager/users/templates/registration/update.html:18
-msgid "Save"
-msgstr "Сохранить"
-
-#: task_manager/users/templates/users.html:6
-msgid "Users list"
-msgstr "Список пользователей"
-
-#: task_manager/users/templates/users.html:11
-msgid "Username"
-msgstr "Имя пользователя"
-
-#: task_manager/users/templates/users.html:13
-msgid "Registration date"
-msgstr "Дата регистрации"
-
-#: task_manager/users/views.py:16
+#: users/views.py:16
 msgid "You have been signed up!"
 msgstr "Вы успешно зарегистрированы!"
 
-#: task_manager/users/views.py:27 task_manager/users/views.py:37
-#: task_manager/users/views.py:48
-msgid "You do not have access to this page"
-msgstr "У вас нет доступа к этой странице"
-
-#: task_manager/users/views.py:38
+#: users/views.py:29
 msgid "Your profile has been updated"
 msgstr "Ваш профиль был обновлен"
 
-#: task_manager/users/views.py:49
+#: users/views.py:37 users/views.py:50
+msgid "You do not have access to this page"
+msgstr "У вас нет доступа к этой странице"
+
+#: users/views.py:45
 msgid "Your profile has been deleted"
 msgstr "Ваш профиль был удален"
+
+#~ msgid "Are you sure you want to delete your account?"
+#~ msgstr "Вы уверены, что хотите удалить свой аккаунт?"
+
+#~ msgid "Confirm"
+#~ msgstr "Потвердить"
+
+#~ msgid "Login"
+#~ msgstr "Войти"
+
+#~ msgid "Please sign in"
+#~ msgstr "Пожалуйста, зарегистрируйтесь"
+
+#~ msgid "Sign in"
+#~ msgstr "Зарегистрироваться"
+
+#~ msgid "Update profile information"
+#~ msgstr "Обновление профиля"
+
+#~ msgid "Delete my profile"
+#~ msgstr "Удалить мой профиль"
+
+#~ msgid "Save"
+#~ msgstr "Сохранить"
+
+#~ msgid "Users list"
+#~ msgstr "Список пользователей"
+
+#~ msgid "Username"
+#~ msgstr "Имя пользователя"
+
+#~ msgid "Registration date"
+#~ msgstr "Дата регистрации"

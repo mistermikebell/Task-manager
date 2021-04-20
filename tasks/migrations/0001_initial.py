@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('date_updated', models.DateTimeField(default=django.utils.timezone.now)),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='author', to=settings.AUTH_USER_MODEL)),
                 ('last_editor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='last_editor', to=settings.AUTH_USER_MODEL)),
-                ('status', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='statuces.status')),
+                ('status', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='statuses.status')),
             ],
         ),
     ]

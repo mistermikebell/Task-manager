@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class StatucesConfig(AppConfig):
-    name = 'statuces'
+class StatusesConfig(AppConfig):
+    name = 'statuses'
