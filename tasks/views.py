@@ -65,7 +65,7 @@ class TaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView
 
 class TaskDeleteView(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
     model = Task
-    success_url = reverse_lazy('statuses_list')
+    success_url = reverse_lazy('tasks_list')
     template_name = 'tasks/task-delete.html'
     success_message = _('Task has been deleted')
 

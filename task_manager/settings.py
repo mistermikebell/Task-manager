@@ -11,13 +11,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '2jsrs&y4)k%4tn*q)+-rx$74!-w1rt5479s%64pj%6op@l)nxk')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY',
+                            '2jsrs&y4)k%4tn*q)+-rx$7'
+                            '4!-w1rt5479s%64pj%6op@l)nxk')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'task-manager-2021.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost',
+                 '127.0.0.1', 'task-manager-2021.herokuapp.com']
 
 
 # Application definition
@@ -128,5 +131,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 django_heroku.settings(locals())
