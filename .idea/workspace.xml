@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="step 7 Filtering v4">
+    <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="postgress setting">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task_manager/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618948038435</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="postgress setting">
+      <created>1619039922423</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1619039922423</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,6 +180,7 @@
     <MESSAGE value="step 7 Filtering v2" />
     <MESSAGE value="step 7 Filtering v3" />
     <MESSAGE value="step 7 Filtering v4" />
-    <option name="LAST_COMMIT_MESSAGE" value="step 7 Filtering v4" />
+    <MESSAGE value="postgress setting" />
+    <option name="LAST_COMMIT_MESSAGE" value="postgress setting" />
   </component>
 </project>

@@ -4,3 +4,5 @@ python-dotenv
 django-crispy-forms
 django_heroku
 django_filter
+dj-database-url
+psycopg2

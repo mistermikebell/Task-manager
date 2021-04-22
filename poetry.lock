@@ -27,7 +27,7 @@ html5lib = ["html5lib"]
 lxml = ["lxml"]
 
 [[package]]
-category = "dev"
+category = "main"
 description = "Use Database URLs in your Django Application."
 name = "dj-database-url"
 optional = false
@@ -209,7 +209,7 @@ version = "5.2.0"
 brotli = ["brotli"]
 
 [metadata]
-content-hash = "151e9e20495914d0d3043cc9589e7e8fc9dfbf44e22f7e5bf228894217050818"
+content-hash = "e4684f5cd466fbf24adeadc0115caba7c34ef64d29a9970219b4e5c0c4ade469"
 lock-version = "1.0"
 python-versions = "^3.8"
 
