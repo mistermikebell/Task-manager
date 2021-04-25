@@ -43,7 +43,7 @@ class StatusesListView(LoginRequiredMixin, generic.ListView):
 class StatusUpdateView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     model = Status
     template_name = 'statuses/update.html'
-    fields = ['status_name']
+    fields = ['status']
     login_url = 'login'
     success_message = _('Status has been updated')
     success_url = reverse_lazy('statuses_list')

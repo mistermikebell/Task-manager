@@ -1,73 +1,43 @@
-from django.test import TestCase
-from django.contrib.auth import get_user_model, authenticate
-from django.test import Client
-from django.template.response import TemplateResponse
+from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
+from django.test import Client, TestCase
+from django.urls import reverse
 
 
-class AuthenticationTest(TestCase):
+class UsersTest(TestCase):
 
     c = Client()
 
     def setUp(self):
-        self.user = get_user_model().objects.create_user(
-            username='test',
-            password='1111',
-            email='test@test.com')
-        self.user.save()
-
-    def test_signup(self):
-        response = self.c.post('/users/create/', {'username': 'tester', 'email': 'test@test.com', 'password1': '1Password!', 'password2': '1Password!'})
-        self.assertTrue(response.status_code, 200)
-
-    def test_login(self):
-        response = self.c.post('/users/login/', {'username': 'test', 'password': '1111'})
-        self.assertRedirects(response, '/')
-
-
-    def test_wrong_username(self):
-        response = self.c.post('/users/login/', {'username': 'test', 'password': '2222'})
-        self.assertTrue(response.status_code, 200)
-
-
-    '''def test_wrong_password(self):
-        user = authenticate(username='test', password='2222')
-        self.assertFalse(user is not None and user.is_authenticated)
-
-    def test_update(self):
-        user = get_user_model().objects.get(username='test')
-        new_username = 'testtest'
-        user.username = new_username
-        user.save()
-        self.assertTrue(new_username is user.get_username())
-
-
-class AuthenticationTestFormer(TestCase):
-
-    def setUp(self):
-        self.user = get_user_model().objects.create_user(
-            username='test',
-            password='1111',
-            email='test@test.com')
-        self.user.save()
+        self.new_user = {'username': 'new_user',
+                         'email': 'test@test.com',
+                         'password1': '1Password!',
+                         'password2': '1Password!'}
+        self.test_user = User.objects.create_user(username='test_user',
+                                                  password='1Password!')
 
     def tearDown(self):
-        self.user.delete()
+        self.test_user.delete()
+
+    def test_signup(self):
+        response = self.c.post('/users/create/', self.new_user)
+        self.assertEqual(response.status_code, 302)
 
     def test_login(self):
-        user = authenticate(username='test', password='1111')
-        self.assertTrue((user is not None) and user.is_authenticated)
-
-    def test_wrong_username(self):
-        user = authenticate(username='not_test', password='1111')
-        self.assertFalse(user is not None and user.is_authenticated)
-
-    def test_wrong_password(self):
-        user = authenticate(username='test', password='2222')
-        self.assertFalse(user is not None and user.is_authenticated)
+        response = self.c.post('/users/login/', {'username': 'test_user',
+                                                 'password': '1Password!'})
+        self.assertEqual(response.status_code, 302)
 
     def test_update(self):
-        user = get_user_model().objects.get(username='test')
-        new_username = 'testtest'
-        user.username = new_username
-        user.save()
-        self.assertTrue(new_username is user.get_username())'''
+        self.c.login(username='test_user', password='1Password!')
+        self.c.post(reverse('update', args=str(self.test_user.id)),
+                    {'username': 'updated_test_user',
+                     'password': '1Password!'})
+        self.test_user.refresh_from_db()
+        self.assertEqual(self.test_user.username, 'updated_test_user')
+
+    def test_delete(self):
+        self.c.login(username='test_user', password='1Password!')
+        self.c.post(reverse('delete', args=str(self.test_user.id)))
+        with self.assertRaises(ObjectDoesNotExist):
+            User.objects.get(id=1)
