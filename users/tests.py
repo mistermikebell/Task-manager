@@ -15,21 +15,23 @@ class UsersTest(TestCase):
                          'password2': '1Password!'}
         self.test_user = User.objects.create_user(username='test_user',
                                                   password='1Password!')
+        self.c.login(username='test_user', password='1Password!')
 
     def tearDown(self):
         self.test_user.delete()
 
     def test_signup(self):
-        response = self.c.post('/users/create/', self.new_user)
-        self.assertEqual(response.status_code, 302)
+        response = self.c.post('/users/create/', self.new_user, follow=True)
+        self.assertRedirects(response, '/')
+        User.objects.get(username='new_user').delete()
 
     def test_login(self):
         response = self.c.post('/users/login/', {'username': 'test_user',
-                                                 'password': '1Password!'})
-        self.assertEqual(response.status_code, 302)
+                                                 'password': '1Password!'},
+                               follow=True)
+        self.assertRedirects(response, '/')
 
     def test_update(self):
-        self.c.login(username='test_user', password='1Password!')
         self.c.post(reverse('update', args=str(self.test_user.id)),
                     {'username': 'updated_test_user',
                      'password': '1Password!'})
@@ -37,7 +39,7 @@ class UsersTest(TestCase):
         self.assertEqual(self.test_user.username, 'updated_test_user')
 
     def test_delete(self):
-        self.c.login(username='test_user', password='1Password!')
-        self.c.post(reverse('delete', args=str(self.test_user.id)))
+        test_user_id = self.test_user.id
+        self.c.post(reverse('delete', args=str(test_user_id)))
         with self.assertRaises(ObjectDoesNotExist):
-            User.objects.get(id=1)
+            User.objects.get(id=test_user_id)
