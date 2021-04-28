@@ -4,10 +4,9 @@
     <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="status update field correction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/labels/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/labels/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/filters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tasks/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
