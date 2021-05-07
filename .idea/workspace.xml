@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="turn on the filter">
-      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+    <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="update localazation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/labels/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" afterPath="$PROJECT_DIR$/labels/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/labels/locale/ru/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/labels/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/labels/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/labels/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/locale/ru/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/locale/ru/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/tasks/task-creation.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/tasks/task-creation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/locale/ru/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" afterPath="$PROJECT_DIR$/users/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/locale/ru/LC_MESSAGES/django.po" beforeDir="false" afterPath="$PROJECT_DIR$/users/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620392707114</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update localazation">
+      <created>1620396138601</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1620396138601</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -244,6 +234,7 @@
     <MESSAGE value="reset db and alter models fields" />
     <MESSAGE value="delete link to static files in template" />
     <MESSAGE value="turn on the filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="turn on the filter" />
+    <MESSAGE value="update localazation" />
+    <option name="LAST_COMMIT_MESSAGE" value="update localazation" />
   </component>
 </project>

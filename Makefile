@@ -1,8 +1,8 @@
 install:
 	@poetry install
 
-test: 
-	poetry run pytest --cov=page_loader tests/ --cov-report xml
+test:
+	poetry run python manage.py test
 
 lint:
 	poetry run flake8 task_manager

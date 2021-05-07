@@ -14,6 +14,6 @@ before_script:
   - ./cc-test-reporter before-build
 script:
 - make lint
-- poetry run pytest --cov=page_loader tests/ --cov-report xml
+- make test
 fter_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
