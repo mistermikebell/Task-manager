@@ -1,66 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="status update field correction">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/labels/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/labels/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/labels/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/labels/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/labels/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/labels/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/labels/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/migrations/0002_auto_20210407_1810.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/migrations/0003_auto_20210407_1821.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/migrations/0004_auto_20210409_2145.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/migrations/0005_auto_20210420_1906.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/migrations/0006_auto_20210420_1907.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statuses/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/statuses/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/migrations/0002_delete_profile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/migrations/0003_delete_task.py" beforeDir="false" />
+    <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="reset db and alter models fields">
+      <change afterPath="$PROJECT_DIR$/labels/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statuses/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task_manager/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/labels/label-delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/labels/label-delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/labels/label-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/labels/label-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/labels/labels-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/labels/labels-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/registration/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/registration/user-delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/registration/user-register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/registration/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/registration/user-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/statuses/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/statuses/status-delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/statuses/statuses.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/statuses/statuses-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/statuses/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/statuses/status-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/tasks/task-delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/tasks/task-delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/tasks/task-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/tasks/task-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/tasks/tasks-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/tasks/tasks-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/templates/users/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/templates/users/users-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0002_remove_task_status.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0003_task_status.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0004_task_label.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0005_auto_20210413_1740.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0006_auto_20210413_1747.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0007_auto_20210413_2105.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0008_auto_20210419_2140.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0009_auto_20210420_1901.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0010_auto_20210420_1903.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0011_auto_20210420_1906.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0012_auto_20210420_1908.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0013_auto_20210420_1917.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/0014_auto_20210420_1919.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0002_delete_task.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/task_manager" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -228,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619362111013</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="reset db and alter models fields">
+      <created>1620387634876</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1620387634876</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,6 +210,7 @@
     <MESSAGE value="heroku deploying" />
     <MESSAGE value="heroku deploying v2" />
     <MESSAGE value="status update field correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="status update field correction" />
+    <MESSAGE value="reset db and alter models fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="reset db and alter models fields" />
   </component>
 </project>
