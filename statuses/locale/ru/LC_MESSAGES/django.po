@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-20 22:32+0300\n"
+"POT-Creation-Date: 2021-05-07 16:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,19 +20,21 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: statuses/views.py:18
+#: statuses/models.py:8
+msgid "Name"
+msgstr "Название"
+
+#: statuses/views.py:15
 msgid "You have created a new status!"
 msgstr "Вы создали новый статус!"
 
-#: statuses/views.py:28 statuses/views.py:40 statuses/views.py:59
-#: statuses/views.py:72
-msgid "You do not have access to this page"
-msgstr "У вас нет доступа к этой странице"
-
-#: statuses/views.py:49
+#: statuses/views.py:32
 msgid "Status has been updated"
 msgstr "Статус успешно обновлен"
 
-#: statuses/views.py:67
+#: statuses/views.py:40
 msgid "Status has been deleted"
 msgstr "Статус успешно удален"
+
+#~ msgid "You do not have access to this page"
+#~ msgstr "У вас нет доступа к этой странице"

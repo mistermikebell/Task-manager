@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-20 22:32+0300\n"
+"POT-Creation-Date: 2021-05-07 16:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,11 @@ msgstr ""
 msgid "Show only my tasks"
 msgstr "Показать только мои задачи"
 
-#: tasks/filters.py:12
+#: tasks/models.py:10
+msgid "Name"
+msgstr "Название"
+
+#: tasks/models.py:12
 msgid "Status"
 msgstr "Статус"
 
@@ -32,18 +36,29 @@ msgstr "Статус"
 msgid "Labels"
 msgstr "Метки"
 
-#: tasks/views.py:20
+#: tasks/models.py:16
+msgid "Description"
+msgstr "Описание"
+
+#: tasks/models.py:22
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: tasks/views.py:14
+msgid "executor"
+msgstr "Исполнитель"
+
+#: tasks/views.py:17
 msgid "You have created a new task!"
 msgstr "Вы создали новую задачу!"
 
-#: tasks/views.py:30 tasks/views.py:43 tasks/views.py:62 tasks/views.py:75
-msgid "You do not have access to this page"
-msgstr "У вас нет доступа к этой странице"
-
-#: tasks/views.py:52
+#: tasks/views.py:35
 msgid "Task has been updated"
 msgstr "Задача успешно обновлена"
 
-#: tasks/views.py:70
+#: tasks/views.py:43
 msgid "Task has been deleted"
 msgstr "Задача успешно удалена"
+
+#~ msgid "You do not have access to this page"
+#~ msgstr "У вас нет доступа к этой странице"

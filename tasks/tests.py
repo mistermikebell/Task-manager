@@ -40,7 +40,7 @@ class TasksTest(TestCase):
         with self.assertRaises(ObjectDoesNotExist):
             Task.objects.get(id=test_task_id)
 
-#cannot resolve AssertionError:
+
 class TaskFilterTest(TestCase):
 
     c = Client()
@@ -52,30 +52,42 @@ class TaskFilterTest(TestCase):
                                                password='1Password!')
         self.status_1 = Status.objects.create(name='test_status',
                                               author=self.user_1)
-        self.status_2 = Status.objects.create(name='test_status_2',
-                                              author=self.user_2)
         self.label_1 = Label.objects.create(name='test_label',
                                             description='label for test',
                                             author=self.user_1)
         Task.objects.create(name='test_task_1',
                             author=self.user_1,
-                            executor=self.user_1,
-                            status=self.status_1)
+                            executor=self.user_1)
         Task.objects.create(name='test_task_2',
-                            author=self.user_1,
-                            executor=self.user_1,
-                            status=self.status_2)
-        Task.objects.create(name='test_task_3',
                             author=self.user_2,
                             executor=self.user_2,
                             status=self.status_1)
         self.test_task_3 = Task.objects.create(name='test_task_4',
                                                author=self.user_2,
                                                executor=self.user_2,
-                                               status=self.status_2)
+                                               status=self.status_1)
         self.test_task_3.labels.set(Label.objects.filter(name='test_label'))
         self.c.login(username='test_user_1', password='1Password!')
 
-    def test_filter(self):
-        response = self.c.get(reverse('tasks_list'), {'author': 'on'})
-        self.assertQuerysetEqual(response.context['object_list'], Task.objects.filter(author=self.user_1), ordered=False)
+    def test_executor_filter(self):
+        response = self.c.get(reverse('tasks_list'), {'executor': 'on'})
+        self.assertQuerysetEqual(
+            response.context['object_list'],
+            map(repr, Task.objects.filter(author=self.user_1)),
+            ordered=False)
+
+    def test_status_filter(self):
+        response = self.c.get(reverse('tasks_list'),
+                              {'status': self.status_1.id})
+        self.assertQuerysetEqual(
+            response.context['object_list'],
+            map(repr, Task.objects.filter(status=self.status_1)),
+            ordered=False)
+
+    def test_label_filter(self):
+        response = self.c.get(reverse('tasks_list'),
+                              {'labels': self.label_1.id})
+        self.assertQuerysetEqual(
+            response.context['object_list'],
+            map(repr, Task.objects.filter(labels=self.label_1)),
+            ordered=False)

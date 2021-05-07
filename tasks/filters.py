@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 class TasksFilter(django_filters.FilterSet):
     executor = django_filters.BooleanFilter(
         field_name='executor', label=_('Show only my tasks'),
-        widget=forms.CheckboxInput, method='filter_last_editor')
+        widget=forms.CheckboxInput, method='filter_executor')
 
     class Meta:
         model = Task

@@ -11,7 +11,7 @@ from task_manager.views import LoginRequiredMixinRedirect
 
 class TaskCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
     model = Task
-    fields = ['name', 'status', 'labels', 'content', 'executor']
+    fields = ['name', 'status', 'labels', 'description', _('executor')]
     template_name = 'tasks/task-creation.html'
     success_url = reverse_lazy('tasks_list')
     success_message = _('You have created a new task!')
