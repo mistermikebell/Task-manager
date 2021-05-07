@@ -18,10 +18,6 @@ class StatusesTest(TestCase):
                                                  editor=self.test_user)
         self.c.login(username='test_user', password='1Password!')
 
-    def tearDown(self):
-        self.test_status.delete()
-        self.test_user.delete()
-
     def test_status_creation(self):
         response = self.c.post('/statuses/create/', self.new_status,
                                follow=True)

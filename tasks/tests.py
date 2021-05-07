@@ -23,11 +23,6 @@ class TasksTest(TestCase):
                                              last_editor=self.test_user)
         self.c.login(username='test_user', password='1Password!')
 
-    def tearDown(self):
-        self.test_task.delete()
-        self.test_status.delete()
-        self.test_user.delete()
-
     def test_task_creation(self):
         response = self.c.post('/tasks/create/', self.new_task,
                                follow=True)

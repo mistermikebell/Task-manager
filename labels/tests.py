@@ -6,7 +6,7 @@ from django.test import Client, TestCase
 from django.urls import reverse
 
 
-class TasksTest(TestCase):
+class LabelsTest(TestCase):
 
     c = Client()
 
@@ -23,16 +23,10 @@ class TasksTest(TestCase):
                                                last_editor=self.test_user)
         self.c.login(username='test_user', password='1Password!')
 
-    def tearDown(self):
-        self.test_task.delete()
-        self.test_label.delete()
-        self.test_user.delete()
-
     def test_label_creation(self):
         response = self.c.post('/labels/create/', self.new_label,
                                follow=True)
         self.assertRedirects(response, reverse('home'))
-        Label.objects.get(label='new_label').delete()
 
     def test_label_update(self):
         self.c.post(reverse('label_update', args=str(self.test_label.id)),

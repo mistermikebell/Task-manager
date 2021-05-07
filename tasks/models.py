@@ -7,15 +7,14 @@ from statuses.models import Status
 
 
 class Task(models.Model):
-    task = models.CharField(max_length=40)
+    name = models.CharField(max_length=200)
     status = models.ForeignKey(Status, on_delete=models.PROTECT,
                                verbose_name=_('Status'), blank=True, null=True)
     labels = models.ManyToManyField(Label, verbose_name=_('Labels'),
-                                    blank=True, null=True)
-    content = models.TextField(blank=True, null=True)
-    date_created = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(User, related_name='author',
-                               on_delete=models.PROTECT)
-    date_updated = models.DateTimeField(default=timezone.now)
-    last_editor = models.ForeignKey(User, related_name='last_editor',
-                                    on_delete=models.PROTECT)
+                                    blank=True)
+    description = models.TextField(blank=True, null=True)
+    created = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, related_name='tasks_author',
+                               on_delete=models.CASCADE)
+    executor = models.ForeignKey(User, related_name='tasks_executor',
+                                 on_delete=models.PROTECT, blank=True, null=True)

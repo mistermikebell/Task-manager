@@ -4,6 +4,6 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        <p>{% trans "Are you sure you want to delete status" %} {{ object.status_name }}?</p>
+        <p>{% trans "Are you sure you want to delete status" %} {{ object.name }}?</p>
         <input type="submit" value="{% trans 'Confirm' %}">
 {% endblock %}
