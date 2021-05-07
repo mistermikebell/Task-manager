@@ -27,7 +27,7 @@ html5lib = ["html5lib"]
 lxml = ["lxml"]
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Python package for providing Mozilla's CA Bundle."
 name = "certifi"
 optional = false
@@ -35,7 +35,7 @@ python-versions = "*"
 version = "2020.12.5"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Universal encoding detector for Python 2 and 3"
 name = "chardet"
 optional = false
@@ -43,7 +43,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "4.0.0"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Use Database URLs in your Django Application."
 name = "dj-database-url"
 optional = false
@@ -91,7 +91,7 @@ python-versions = ">=3.5"
 version = "1.11.2"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
 name = "django-filter"
 optional = false
@@ -146,7 +146,7 @@ setproctitle = ["setproctitle"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Internationalized Domain Names in Applications (IDNA)"
 name = "idna"
 optional = false
@@ -205,7 +205,7 @@ python-versions = "*"
 version = "2021.1"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Python HTTP for Humans."
 name = "requests"
 optional = false
@@ -223,7 +223,7 @@ security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
 socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7)", "win-inet-pton"]
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Easy and powerful exception tracking with Rollbar. Send messages and exceptions with arbitrary context, get back aggregates, and debug production issues quickly."
 name = "rollbar"
 optional = false
@@ -235,7 +235,7 @@ requests = ">=0.12.1"
 six = ">=1.9.0"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Python 2 and 3 compatibility utilities"
 name = "six"
 optional = false
@@ -260,7 +260,7 @@ python-versions = ">=3.5"
 version = "0.4.1"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 name = "urllib3"
 optional = false
@@ -284,7 +284,7 @@ version = "5.2.0"
 brotli = ["brotli"]
 
 [metadata]
-content-hash = "04d6f579cd7b0484d1353cf04fa9cca932adca5a344ff1919dd4e2c636e25082"
+content-hash = "f648fed33bea43833579284b5653058849c13792c36a05038b7d70b38773b3cd"
 lock-version = "1.0"
 python-versions = "^3.8"
 

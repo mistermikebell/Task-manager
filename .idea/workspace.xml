@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="update localazation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="483213df-2e30-4cb3-be59-47354b26fb09" name="Default Changelist" comment="psycorg2 before dj-heroku" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -198,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620396138601</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="psycorg2 before dj-heroku">
+      <created>1620399432258</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1620399432258</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,6 +237,7 @@
     <MESSAGE value="delete link to static files in template" />
     <MESSAGE value="turn on the filter" />
     <MESSAGE value="update localazation" />
-    <option name="LAST_COMMIT_MESSAGE" value="update localazation" />
+    <MESSAGE value="psycorg2 before dj-heroku" />
+    <option name="LAST_COMMIT_MESSAGE" value="psycorg2 before dj-heroku" />
   </component>
 </project>
