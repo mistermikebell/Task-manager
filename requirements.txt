@@ -1,9 +1,9 @@
 django
 gunicorn
 python-dotenv
+psycopg2
 django-crispy-forms
 django_heroku
 django_filter
 dj-database-url
-psycopg2
 rollbar
