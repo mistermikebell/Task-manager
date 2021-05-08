@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.utils.translation import ugettext_lazy as _
 from users.forms import SignUpForm
 from task_manager.views import LoginRequiredMixinRedirect
@@ -24,7 +24,9 @@ class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.Up
     template_name = 'registration/user-update.html'
     fields = ['username', 'email', 'password']
     success_message = _('Your profile has been updated')
-    success_url = reverse_lazy('update')
+
+    def get_success_url(self):
+        return ''
 
 
 class DeleteUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.DeleteView):

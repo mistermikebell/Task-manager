@@ -11,28 +11,29 @@ class LabelsTest(TestCase):
     c = Client()
 
     def setUp(self):
-        self.new_label = {'label': 'new_label', 'description': 'testing'}
+        self.new_label = {'name': 'new_label', 'description': 'testing'}
         self.test_user = User.objects.create_user(username='test_user',
                                                   password='1Password!')
-        self.test_task = Task.objects.create(task='test_task',
+        self.test_task = Task.objects.create(name='test_task',
                                              author=self.test_user,
-                                             last_editor=self.test_user)
-        self.test_label = Label.objects.create(label='test_label',
+                                             executor=self.test_user)
+        self.test_label = Label.objects.create(name='test_label',
                                                description='testing',
-                                               author=self.test_user,
-                                               last_editor=self.test_user)
+                                               author=self.test_user)
         self.c.login(username='test_user', password='1Password!')
 
     def test_label_creation(self):
         response = self.c.post('/labels/create/', self.new_label,
                                follow=True)
         self.assertRedirects(response, reverse('home'))
+        self.assertEqual('new_label',
+                         Label.objects.get(name='new_label').name)
 
     def test_label_update(self):
         self.c.post(reverse('label_update', args=str(self.test_label.id)),
-                    {'label': 'updated_test_label', 'description': 'testing'})
+                    {'name': 'updated_test_label', 'description': 'testing'})
         self.test_label.refresh_from_db()
-        self.assertEqual(self.test_label.label, 'updated_test_label')
+        self.assertEqual(self.test_label.name, 'updated_test_label')
 
     def test_label_delete(self):
         test_label_id = self.test_label.id

@@ -12,12 +12,12 @@ class TasksTest(TestCase):
     c = Client()
 
     def setUp(self):
-        self.new_task = {'task': 'new_task'}
+        self.new_task = {'name': 'new_task'}
         self.test_user = User.objects.create_user(username='test_user',
                                                   password='1Password!')
         self.test_status = Status.objects.create(name='test_status',
                                                  author=self.test_user)
-        self.test_task = Task.objects.create(task='test_task',
+        self.test_task = Task.objects.create(name='test_task',
                                              author=self.test_user,
                                              executor=self.test_user)
         self.c.login(username='test_user', password='1Password!')
@@ -26,13 +26,14 @@ class TasksTest(TestCase):
         response = self.c.post('/tasks/create/', self.new_task,
                                follow=True)
         self.assertRedirects(response, reverse('tasks_list'))
-        Task.objects.get(task='new_task').delete()
+        self.assertEqual('new_task',
+                         Task.objects.get(name='new_task').name)
 
     def test_task_update(self):
         self.c.post(reverse('task_update', args=str(self.test_task.id)),
-                    {'task': 'updated_test_task'})
+                    {'name': 'updated_test_task'})
         self.test_task.refresh_from_db()
-        self.assertEqual(self.test_task.task, 'updated_test_task')
+        self.assertEqual(self.test_task.name, 'updated_test_task')
 
     def test_task_delete(self):
         test_task_id = self.test_status.id
