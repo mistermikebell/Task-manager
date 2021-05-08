@@ -13,6 +13,7 @@ class Migration(migrations.Migration):
     dependencies = [
         ('labels', '0001_initial'),
         ('statuses', '0001_initial'),
+        ('auth', '__first__'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
