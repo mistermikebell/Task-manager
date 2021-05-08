@@ -8,7 +8,6 @@ __pycache__/
 dist/
 *.pyc
 .venv/
-/.venv/
 .coverage
 coverage.xml
 .idea/
