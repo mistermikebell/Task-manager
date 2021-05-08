@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'tasks',
     'labels',
     'crispy_forms',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
