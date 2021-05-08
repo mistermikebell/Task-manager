@@ -1,5 +1,4 @@
 import dj_database_url
-import django_heroku
 import os
 
 from pathlib import Path
@@ -86,6 +85,9 @@ DATABASES = {
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
 
+if '/app' in os.environ['HOME']:
+    import django_heroku
+    django_heroku.settings(locals())
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -136,5 +138,3 @@ LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
-
-django_heroku.settings(locals())
