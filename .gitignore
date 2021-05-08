@@ -7,7 +7,7 @@
 
 dist/
 *.pyc
-
+.venv
 .coverage
 coverage.xml
 .idea
