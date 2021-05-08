@@ -91,7 +91,7 @@ python-versions = ">=3.5"
 version = "1.11.2"
 
 [[package]]
-category = "dev"
+category = "main"
 description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
 name = "django-filter"
 optional = false
@@ -284,7 +284,7 @@ version = "5.2.0"
 brotli = ["brotli"]
 
 [metadata]
-content-hash = "a4444fe67fcd95a5596ad4dc8892be437259c9116f595e1b938f39cc9428d89b"
+content-hash = "788744be48b550ef47558a9ebedaa730eae2367a1f5cda265018e558b267ea8b"
 lock-version = "1.0"
 python-versions = "^3.8"
 
