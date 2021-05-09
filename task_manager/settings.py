@@ -1,5 +1,6 @@
 import dj_database_url
 import django_heroku
+import dotenv
 import os
 
 from pathlib import Path
@@ -7,13 +8,11 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY',
-                            '2jsrs&y4)k%4tn*q)+-rx$7'
-                            '4!-w1rt5479s%64pj%6op@l)nxk')
+SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -88,22 +87,6 @@ DATABASES = {
 db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=False)
 DATABASES['default'].update(db_from_env)
 
-# if '/app' in os.environ['HOME']:
-
-
-# DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME': 'd6nincgqk35doc',
-#             'USER': 'jvpmmghigkdrjt',
-#             'PASSWORD': '9eaf0d02245ca9c824633b182168f3308c50909e80f85f85f89060d2eed5847b',
-#             'HOST': 'ec2-54-228-174-49.eu-west-1.compute.amazonaws.com',
-#             'PORT': '5432',
-#         }
-#     }
-# else:
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -156,4 +139,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 STATIC_URL = '/static/'
 
-django_heroku.settings(locals(), databases=False)
+# django_heroku.settings(locals(), databases=False)

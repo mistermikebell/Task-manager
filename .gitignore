@@ -15,3 +15,5 @@ coverage.xml
 
 local_settings.py
 *.sqlite3
+
+.env
