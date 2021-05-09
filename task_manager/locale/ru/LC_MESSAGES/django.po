@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-07 16:42+0300\n"
+"POT-Creation-Date: 2021-05-09 20:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/templates/base.html:41 task_manager/views.py:11
+#: task_manager/templates/base.html:41
 msgid "Task manager"
 msgstr "Менеджер задач"
 
@@ -49,7 +49,6 @@ msgid "Logout"
 msgstr "Выйти"
 
 #: task_manager/templates/base.html:74
-#: task_manager/templates/registration/login.html:11
 msgid "Login"
 msgstr "Вход"
 
@@ -69,21 +68,14 @@ msgstr "Мои задачи"
 msgid "Add a new task"
 msgstr "Добавь новую задачу"
 
-#: task_manager/templates/index.html:24
-msgid "Active"
-msgstr "Текущие"
+#: task_manager/templates/index.html:38
+msgid "Done"
+msgstr ""
 
-#: task_manager/templates/index.html:27
-msgid "Backlog"
-msgstr "В ожидании"
-
-#: task_manager/templates/index.html:30
-msgid "Completed"
-msgstr "Завершенные"
-
-#: task_manager/templates/index.html:39
-msgid "Feb 2021"
-msgstr "Февраль 2021"
+#: task_manager/templates/index.html:46
+#: task_manager/templates/tasks/tasks-list.html:54
+msgid "There are no tasks."
+msgstr "Задач нет"
 
 #: task_manager/templates/labels/label-creation.html:8
 #: task_manager/templates/labels/labels-list.html:9
@@ -155,6 +147,10 @@ msgstr "Удалить"
 #: task_manager/templates/labels/labels-list.html:38
 msgid "There are no labels."
 msgstr "Меток нет"
+
+#: task_manager/templates/registration/login.html:11
+msgid "Log in"
+msgstr "Войти"
 
 #: task_manager/templates/registration/user-delete.html:7
 msgid "Are you sure you want to delete your account?"
@@ -238,10 +234,6 @@ msgstr "Исполнитель"
 msgid "Date updated"
 msgstr "Дата обновления"
 
-#: task_manager/templates/tasks/tasks-list.html:54
-msgid "There are no tasks."
-msgstr "Задач нет"
-
 #: task_manager/templates/users/users-list.html:6
 msgid "Users list"
 msgstr "Список пользователей"
@@ -254,9 +246,21 @@ msgstr "Имя пользователя"
 msgid "Registration date"
 msgstr "Дата регистрации"
 
-#: task_manager/views.py:20
+#: task_manager/views.py:14
 msgid "You do not have access to this page"
 msgstr "У вас нет доступа к этой странице"
+
+#~ msgid "Active"
+#~ msgstr "Текущие"
+
+#~ msgid "Backlog"
+#~ msgstr "В ожидании"
+
+#~ msgid "Completed"
+#~ msgstr "Завершенные"
+
+#~ msgid "Feb 2021"
+#~ msgstr "Февраль 2021"
 
 #~ msgid "Updated by"
 #~ msgstr "Последний редактор"
