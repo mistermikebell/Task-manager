@@ -4,13 +4,9 @@ from django.contrib import messages
 from django.contrib.auth.views import redirect_to_login
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.mixins import LoginRequiredMixin
-
-
-def index(request):
-    context = {
-        'title': gettext('Task manager')
-    }
-    return render(request, 'index.html', context)
+from django_filters.views import FilterView
+from tasks.models import Task
+from task_manager.filters import MyTasksFilter
 
 
 class LoginRequiredMixinRedirect(LoginRequiredMixin):
@@ -19,3 +15,12 @@ class LoginRequiredMixinRedirect(LoginRequiredMixin):
             messages.error(self.request,
                            _('You do not have access to this page'))
         return redirect_to_login(self.request.get_full_path(), 'login', '')
+
+
+class MyTasksListView(LoginRequiredMixinRedirect, FilterView):
+    model = Task
+    template_name = 'index.html'
+    filterset_class = MyTasksFilter
+
+    def get_queryset(self):
+        return Task.objects.filter(executor=self.request.user)

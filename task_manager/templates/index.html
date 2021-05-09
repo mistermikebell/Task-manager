@@ -41,7 +41,33 @@
       </div>
 
 
+      {% if object_list %}
 
+        <div class="card mb-3">
+          <div class="card-body bg-light">
+            <form class="form-inline center" method="get">
+              {{ filter.form }}
+              <input type="submit" />
+            </form>
+          </div>
+        </div>
+
+        {% for object in filter.qs %}
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ object.name }}</h5>
+                  <p class="card-text"><b>Author:</b> {{ object.author }} </p>
+                <a href="#" class="btn btn-primary">{% trans 'Done' %}</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+        {% else %}
+            <p>{% trans 'There are no tasks.' %}</p>
+        {% endif %}
 
       {% endif %}
 

@@ -76,6 +76,9 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -83,12 +86,22 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-
 if '/app' in os.environ['HOME']:
     import django_heroku
     django_heroku.settings(locals())
+
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': 'd6nincgqk35doc',
+#             'USER': 'jvpmmghigkdrjt',
+#             'PASSWORD': '9eaf0d02245ca9c824633b182168f3308c50909e80f85f85f89060d2eed5847b',
+#             'HOST': 'ec2-54-228-174-49.eu-west-1.compute.amazonaws.com',
+#             'PORT': '5432',
+#         }
+#     }
+# else:
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
