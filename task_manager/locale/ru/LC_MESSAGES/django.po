@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-09 20:24+0300\n"
+"POT-Creation-Date: 2021-05-09 23:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,11 +68,11 @@ msgstr "Мои задачи"
 msgid "Add a new task"
 msgstr "Добавь новую задачу"
 
-#: task_manager/templates/index.html:38
+#: task_manager/templates/index.html:39
 msgid "Done"
 msgstr ""
 
-#: task_manager/templates/index.html:46
+#: task_manager/templates/index.html:47
 #: task_manager/templates/tasks/tasks-list.html:54
 msgid "There are no tasks."
 msgstr "Задач нет"

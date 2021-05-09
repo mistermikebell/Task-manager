@@ -20,6 +20,10 @@ class LoginUserView(SuccessMessageMixin, LoginView):
     success_message = _('You are logged in!')
 
 
+class LogoutUserView(SuccessMessageMixin, LogoutView):
+    success_message = _('You are logged out!')
+
+
 class UsersListView(generic.ListView):
     model = User
     template_name = 'users/users-list.html'
