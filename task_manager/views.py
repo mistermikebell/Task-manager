@@ -1,5 +1,3 @@
-from django.shortcuts import render
-from django.utils.translation import gettext
 from django.contrib import messages
 from django.contrib.auth.views import redirect_to_login
 from django.utils.translation import ugettext_lazy as _

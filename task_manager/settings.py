@@ -1,4 +1,5 @@
 import dj_database_url
+import django_heroku
 import os
 
 from pathlib import Path
@@ -84,12 +85,11 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
+db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=False)
 DATABASES['default'].update(db_from_env)
 
 # if '/app' in os.environ['HOME']:
-import django_heroku
-django_heroku.settings(locals())
+
 
 # DATABASES = {
 #         'default': {
@@ -155,3 +155,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())

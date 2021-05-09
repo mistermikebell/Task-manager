@@ -9,7 +9,9 @@ class MyTasksFilter(django_filters.FilterSet):
     executor = django_filters.BooleanFilter(
         field_name='executor', label=_('Show only my tasks'),
         widget=forms.CheckboxInput, method='filter_executor')
-    status = django_filters.AllValuesFilter(field_name='status', widget=forms.CheckboxSelectMultiple)
+    status = django_filters.AllValuesFilter(
+        field_name='status',
+        widget=forms.CheckboxSelectMultiple)
 
     class Meta:
         model = Task
