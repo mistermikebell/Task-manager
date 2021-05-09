@@ -156,4 +156,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 STATIC_URL = '/static/'
 
-django_heroku.settings(locals())
+django_heroku.settings(locals(), databases=False)
