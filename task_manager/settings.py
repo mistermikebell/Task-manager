@@ -87,9 +87,9 @@ DATABASES = {
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
 
-if '/app' in os.environ['HOME']:
-    import django_heroku
-    django_heroku.settings(locals())
+# if '/app' in os.environ['HOME']:
+import django_heroku
+django_heroku.settings(locals())
 
 # DATABASES = {
 #         'default': {
