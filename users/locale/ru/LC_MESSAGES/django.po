@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-09 20:08+0300\n"
+"POT-Creation-Date: 2021-05-09 20:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,19 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: users/views.py:14
+#: users/views.py:15
 msgid "You have been signed up!"
-msgstr "Вы успешно зарегистрированы!"
+msgstr "Вы зарегистрированы"
 
-#: users/views.py:26
+#: users/views.py:20
+msgid "You are logged in!"
+msgstr "Вы залогинены"
+
+#: users/views.py:32
 msgid "Your profile has been updated"
 msgstr "Ваш профиль был обновлен"
 
-#: users/views.py:36
+#: users/views.py:42
 msgid "Your profile has been deleted"
 msgstr "Ваш профиль был удален"
 

@@ -16,6 +16,7 @@
                 <button type="button" class="btn btn-outline-primary">{% trans "Add a new task" %}</button>
               </div>
             </div>
+      </div>
         <br>
         <form method="get">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -46,6 +47,7 @@
             <p>{% trans 'There are no tasks.' %}</p>
         {% endif %}
 
+      {% else %}
       {% endif %}
 
 

@@ -12,13 +12,14 @@ class LoginRequiredMixinRedirect(LoginRequiredMixin):
         if not self.request.user.is_authenticated:
             messages.error(self.request,
                            _('You do not have access to this page'))
-        return redirect_to_login(self.request.get_full_path(), 'login', '')
+        return redirect_to_login(self.request.get_full_path(), 'user-login', '')
 
 
-class MyTasksListView(LoginRequiredMixinRedirect, FilterView):
+class MyTasksListView(FilterView):
     model = Task
     template_name = 'index.html'
     filterset_class = MyTasksFilter
 
     def get_queryset(self):
-        return Task.objects.filter(executor=self.request.user)
+        if self.request.user.is_authenticated:
+            return Task.objects.filter(executor=self.request.user)
