@@ -21,7 +21,7 @@
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               {% for status in filter.form.status %}
               <li class="nav-item" role="presentation">
-                <button type="submit" class="btn btn-outline-primary" name="status" value="{{ status }}">{{ status.name }}</button>
+                <button type="submit" class="btn btn-outline-primary" name="status" value="{{ status.id }}">{{ status }}</button>
               </li>
               {% endfor %}
         </ul>
