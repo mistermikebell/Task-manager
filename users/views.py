@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
@@ -21,7 +22,11 @@ class LoginUserView(SuccessMessageMixin, LoginView):
 
 
 class LogoutUserView(SuccessMessageMixin, LogoutView):
-    success_message = _('You are logged out!')
+
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        messages.add_message(request, messages.WARNING, _('You are logged out!'))
+        return response
 
 
 class UsersListView(generic.ListView):
