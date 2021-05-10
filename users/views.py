@@ -37,7 +37,7 @@ class UsersListView(generic.ListView):
 class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.UpdateView):
     model = User
     template_name = 'registration/user-update.html'
-    fields = ['username', 'email', 'password']
+    fields = ['username', 'email', 'first_name', 'last_name', 'password']
     success_message = _('Your profile has been updated')
 
     def get_success_url(self):

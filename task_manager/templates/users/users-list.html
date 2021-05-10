@@ -17,6 +17,9 @@
     <div class="ms-2 me-auto">
       <div>{{ object.username }}</div>
     </div>
+    <div class="ms-2 me-auto">
+      <div>{{ object.first_name }} {{ object.last_name }}</div>
+    </div>
     <span class="badge bg-primary rounded-pill">{{ object.date_joined }}</span>
   </li>
   {% endfor %}
