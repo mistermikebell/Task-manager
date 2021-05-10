@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-10 20:13+0300\n"
+"POT-Creation-Date: 2021-05-10 20:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,8 +96,8 @@ msgstr "Вы действительно хотите удалить метку?"
 #: task_manager/templates/registration/user-delete.html:8
 #: task_manager/templates/statuses/status-delete.html:8
 #: task_manager/templates/tasks/task-delete.html:8
-msgid "Confirm"
-msgstr "Подтвердить"
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: task_manager/templates/labels/label-update.html:8
 msgid "Update label"
@@ -255,6 +255,9 @@ msgstr "Полное имя"
 #: task_manager/views.py:14
 msgid "You do not have access to this page"
 msgstr "У вас нет доступа к этой странице"
+
+#~ msgid "Confirm"
+#~ msgstr "Подтвердить"
 
 #~ msgid "Registration date"
 #~ msgstr "Дата регистрации"
