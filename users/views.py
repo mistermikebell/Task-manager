@@ -1,6 +1,8 @@
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import ProtectedError
+from django.http import HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -47,3 +49,16 @@ class DeleteUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.De
     success_url = reverse_lazy('users_list')
     template_name = 'registration/user-delete.html'
     success_message = _('Your profile has been deleted')
+
+    def delete(self, request, *args, **kwargs):
+
+        try:
+            self.object = self.get_object()
+            self.object.delete()
+            return HttpResponseRedirect(self.get_success_url())
+
+        except ProtectedError:
+            messages.add_message(request, messages.ERROR,
+                                 _('Cannot delete this user, because'
+                                   ' the user is attached to an object!'))
+            return HttpResponseRedirect(reverse_lazy('users_list'))

@@ -1,4 +1,7 @@
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import ProtectedError
+from django.http import HttpResponseRedirect
 from django.views import generic
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
@@ -38,3 +41,16 @@ class LabelDeleteView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.D
     success_url = reverse_lazy('labels_list')
     template_name = 'labels/label-delete.html'
     success_message = _('Label has been deleted successfully')
+
+    def delete(self, request, *args, **kwargs):
+
+        try:
+            self.object = self.get_object()
+            self.object.delete()
+            return HttpResponseRedirect(self.get_success_url())
+
+        except ProtectedError:
+            messages.add_message(request, messages.ERROR,
+                                 _('Cannot delete this label, because'
+                                   ' the label is attached to an object!'))
+            return HttpResponseRedirect(reverse_lazy('users_list'))

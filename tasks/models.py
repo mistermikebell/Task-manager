@@ -10,7 +10,8 @@ class Task(models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Name'))
     status = models.ForeignKey(Status, on_delete=models.PROTECT,
                                verbose_name=_('Status'), blank=True, null=True)
-    labels = models.ManyToManyField(Label, verbose_name=_('Labels'),
+    labels = models.ManyToManyField(Label, on_delete=models.PROTECT,
+                                    verbose_name=_('Labels'),
                                     blank=True)
     description = models.TextField(blank=True, null=True,
                                    verbose_name=_('Description'))
