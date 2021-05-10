@@ -12,7 +12,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 class RegisterUserView(SuccessMessageMixin, generic.CreateView):
     form_class = SignUpForm
     template_name = 'registration/user-register.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('login')
     success_message = _('You have been signed up!')
 
 
