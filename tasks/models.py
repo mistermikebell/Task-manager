@@ -10,7 +10,7 @@ class Task(models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Name'))
     status = models.ForeignKey(Status, on_delete=models.PROTECT,
                                verbose_name=_('Status'), blank=True, null=True)
-    labels = models.ManyToManyField(Label, on_delete=models.PROTECT,
+    labels = models.ManyToManyField(Label, through='LabelsTask',
                                     verbose_name=_('Labels'),
                                     blank=True)
     description = models.TextField(blank=True, null=True,
@@ -24,3 +24,8 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class LabelsTask(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.PROTECT, blank=True, null=True)
