@@ -44,17 +44,18 @@ class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.ed
     form_class = UserUpdateForm
 
 
-class DeleteUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.DeleteView):
+class DeleteUserView(LoginRequiredMixinRedirect, generic.DeleteView):
     model = User
     success_url = reverse_lazy('users_list')
     template_name = 'registration/user-delete.html'
-    success_message = _('Your profile has been deleted')
 
     def delete(self, request, *args, **kwargs):
 
         try:
             self.object = self.get_object()
             self.object.delete()
+            messages.add_message(request, messages.SUCCESS,
+                                 _('Your profile has been deleted'))
             return HttpResponseRedirect(self.get_success_url())
 
         except ProtectedError:

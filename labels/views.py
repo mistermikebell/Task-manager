@@ -36,17 +36,18 @@ class LabelUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.U
     success_url = reverse_lazy('labels_list')
 
 
-class LabelDeleteView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.DeleteView):
+class LabelDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
     model = Label
     success_url = reverse_lazy('labels_list')
     template_name = 'labels/label-delete.html'
-    success_message = _('Label has been deleted successfully')
 
     def delete(self, request, *args, **kwargs):
 
         try:
             self.object = self.get_object()
             self.object.delete()
+            messages.add_message(request, messages.SUCCESS,
+                                 _('Label has been deleted successfully'))
             return HttpResponseRedirect(self.get_success_url())
 
         except ProtectedError:

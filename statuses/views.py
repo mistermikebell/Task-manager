@@ -36,17 +36,18 @@ class StatusUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.
     success_url = reverse_lazy('statuses_list')
 
 
-class StatusDeleteView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.DeleteView):
+class StatusDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
     model = Status
     success_url = reverse_lazy('statuses_list')
     template_name = 'statuses/status-delete.html'
-    success_message = _('Status has been deleted')
 
     def delete(self, request, *args, **kwargs):
 
         try:
             self.object = self.get_object()
             self.object.delete()
+            messages.add_message(request, messages.SUCCESS,
+                                 _('Status has been deleted'))
             return HttpResponseRedirect(self.get_success_url())
 
         except ProtectedError:
