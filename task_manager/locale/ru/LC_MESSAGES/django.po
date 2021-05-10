@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-10 19:15+0300\n"
+"POT-Creation-Date: 2021-05-10 20:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,7 +128,7 @@ msgstr "Автор"
 #: task_manager/templates/labels/labels-list.html:19
 #: task_manager/templates/statuses/statuses-list.html:18
 #: task_manager/templates/tasks/tasks-list.html:31
-#: task_manager/templates/users/users-list.html:34
+#: task_manager/templates/users/users-list.html:14
 msgid "Created date"
 msgstr "Дата создания"
 
@@ -139,14 +139,14 @@ msgstr "Дата создания"
 #: task_manager/templates/statuses/statuses-list.html:29
 #: task_manager/templates/tasks/task-update.html:11
 #: task_manager/templates/tasks/tasks-list.html:44
-#: task_manager/templates/users/users-list.html:46
+#: task_manager/templates/users/users-list.html:26
 msgid "Change"
 msgstr "Изменить"
 
 #: task_manager/templates/labels/labels-list.html:32
 #: task_manager/templates/statuses/statuses-list.html:30
 #: task_manager/templates/tasks/tasks-list.html:45
-#: task_manager/templates/users/users-list.html:47
+#: task_manager/templates/users/users-list.html:27
 msgid "Delete"
 msgstr "Удалить"
 
@@ -241,25 +241,23 @@ msgid "Users list"
 msgstr "Список пользователей"
 
 #: task_manager/templates/users/users-list.html:11
-#: task_manager/templates/users/users-list.html:32
+msgid "ID"
+msgstr ""
+
+#: task_manager/templates/users/users-list.html:12
 msgid "Username"
 msgstr "Имя пользователя"
 
 #: task_manager/templates/users/users-list.html:13
-msgid "Registration date"
-msgstr "Дата регистрации"
-
-#: task_manager/templates/users/users-list.html:31
-msgid "ID"
-msgstr ""
-
-#: task_manager/templates/users/users-list.html:33
 msgid "Full name"
 msgstr "Полное имя"
 
 #: task_manager/views.py:14
 msgid "You do not have access to this page"
 msgstr "У вас нет доступа к этой странице"
+
+#~ msgid "Registration date"
+#~ msgstr "Дата регистрации"
 
 #~ msgid "Date created"
 #~ msgstr "Дата создания"

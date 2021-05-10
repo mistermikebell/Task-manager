@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 
 
 class SignUpForm(UserCreationForm):
@@ -11,8 +12,8 @@ class SignUpForm(UserCreationForm):
 
 
 class UserUpdateForm(forms.ModelForm):
-    password1 = forms.CharField(widget=forms.PasswordInput())
-    password2 = forms.CharField(widget=forms.PasswordInput())
+    password1 = forms.CharField(widget=forms.PasswordInput(), label=_('Password'))
+    password2 = forms.CharField(widget=forms.PasswordInput(), label=_('Password confirmation'))
 
     class Meta:
         model = User
