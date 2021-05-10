@@ -38,12 +38,12 @@ class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.ed
     model = User
     template_name = 'registration/user-update.html'
     success_message = _('Your profile has been updated')
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('users_list')
     form_class = UserUpdateForm
 
 
 class DeleteUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.DeleteView):
     model = User
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('users_list')
     template_name = 'registration/user-delete.html'
     success_message = _('Your profile has been deleted')
