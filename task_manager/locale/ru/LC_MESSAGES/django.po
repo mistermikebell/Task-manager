@@ -46,7 +46,7 @@ msgstr "Выход"
 
 #: task_manager/templates/base.html:68
 msgid "Edit profile"
-msgstr "Редактировать профиль"
+msgstr "Изменить"
 
 #: task_manager/templates/base.html:77
 msgid "Login"
