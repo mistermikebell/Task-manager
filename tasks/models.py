@@ -20,3 +20,6 @@ class Task(models.Model):
     executor = models.ForeignKey(User, related_name='tasks_executor',
                                  on_delete=models.PROTECT, blank=True, null=True,
                                  verbose_name=_('Executor'))
+
+    def __str__(self):
+        return self.name

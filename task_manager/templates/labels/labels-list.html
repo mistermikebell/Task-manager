@@ -15,6 +15,7 @@
     <tr>
       <th>{% trans 'Label' %}</th>
       <th>{% trans 'Description' %}</th>
+      <th>{% trans 'Author' %}</th>
       <th>{% trans 'Date created' %}</th>
       <th>{% trans 'Change' %}</th>
     </tr>
@@ -24,9 +25,10 @@
       <tr>
           <td>{{ object.name }}</td>
           <td>{{ object.description }}</td>
-          <td>{{ object.date_created }}</td>
+          <td>{{ object.author }}</td>
+          <td>{{ object.created }}</td>
           <td>
-              <a class="dropdown-item" href="{% url 'label_update' object.id %}">{% trans 'Update' %}</a>
+              <a class="dropdown-item" href="{% url 'label_update' object.id %}">{% trans 'Change' %}</a>
               <a class="dropdown-item" href="{% url 'label_delete' object.id %}">{% trans 'Delete' %}</a>
           </td>
       </tr>

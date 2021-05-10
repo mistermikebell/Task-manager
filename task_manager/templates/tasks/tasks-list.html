@@ -16,7 +16,7 @@
   <div class="card-body bg-light">
     <form class="form-inline center" method="get">
       {{ filter.form }}
-      <input type="submit" />
+        <button class="btn btn-primary" type="submit">{% trans 'Show' %}</button>
     </form>
   </div>
 </div>
@@ -28,7 +28,7 @@
       <th>{% trans 'Status' %}</th>
       <th>{% trans 'Author' %}</th>
       <th>{% trans 'Executor' %}</th>
-      <th>{% trans 'Date updated' %}</th>
+      <th>{% trans 'Date created' %}</th>
       <th></th>
     </tr>
   </thead>
@@ -39,9 +39,9 @@
           <td>{{ object.status }}</td>
           <td>{{ object.author }}</td>
           <td>{{ object.executor }}</td>
-          <td>{{ object.date_updated }}</td>
+          <td>{{ object.created }}</td>
           <td>
-              <a class="dropdown-item" href="{% url 'task_update' object.id %}">{% trans 'Update' %}</a>
+              <a class="dropdown-item" href="{% url 'task_update' object.id %}">{% trans 'Change' %}</a>
               <a class="dropdown-item" href="{% url 'task_delete' object.id %}">{% trans 'Delete' %}</a>
           </td>
       </tr>
