@@ -5,25 +5,33 @@
 <br>
 <h3>{% trans 'Users list' %}</h3>
 {% if object_list %}
-<ol class="list-group list-group-numbered">
-  <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto">
-        <div class="fw-bold">{% trans 'Username' %}</div>
-    </div>
-      <span><b>{% trans 'Registration date' %}</b></span>
-  </li>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>{% trans 'ID' %}</th>
+      <th>{% trans 'Username' %}</th>
+      <th>{% trans 'Full name' %}</th>
+      <th>{% trans 'Created date' %}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
   {% for object in object_list %}
-  <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto">
-      <div>{{ object.username }}</div>
-    </div>
-    <div class="ms-2 me-auto">
-      <div>{{ object.first_name }} {{ object.last_name }}</div>
-    </div>
-    <span class="badge bg-primary rounded-pill">{{ object.date_joined }}</span>
-  </li>
+      <tr>
+          <td>{{ object.id }}</td>
+          <td>{{ object.username }}</td>
+          <td>{{ object.first_name }} {{ object.last_name }}</td>
+          <td>{{ object.date_joined }}</td>
+          <td>
+              <a class="dropdown-item" href="{% url 'update' object.id %}">{% trans 'Change' %}</a>
+              <a class="dropdown-item" href="{% url 'delete' object.id %}">{% trans 'Delete' %}</a>
+          </td>
+      </tr>
+
   {% endfor %}
-</ol>
+  </tbody>
+</table>
+
 {% else %}
     <p>No polls are available.</p>
 {% endif %}

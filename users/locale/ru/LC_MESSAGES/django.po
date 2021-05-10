@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-10 17:45+0300\n"
+"POT-Creation-Date: 2021-05-10 19:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,11 +32,11 @@ msgstr "Вы залогинены"
 msgid "You are logged out!"
 msgstr "Вы разлогинены"
 
-#: users/views.py:41
+#: users/views.py:40
 msgid "Your profile has been updated"
 msgstr "Пользователь успешно изменён"
 
-#: users/views.py:51
+#: users/views.py:49
 msgid "Your profile has been deleted"
 msgstr "Пользователь успешно удален"
 
