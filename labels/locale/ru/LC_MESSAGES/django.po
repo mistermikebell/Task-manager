@@ -34,11 +34,11 @@ msgstr "Метка успешно создана"
 
 #: labels/views.py:32
 msgid "Label has been updated successfully"
-msgstr "Метка успешно создана"
+msgstr "Метка успешно изменена"
 
 #: labels/views.py:40
 msgid "Label has been deleted successfully"
-msgstr "Метка успешно создана"
+msgstr "Метка успешно удалена"
 
 #~ msgid "You do not have access to this page"
-#~ msgstr "У вас нет доступа к этой странице"
+#~ msgstr "Вы не авторизованы! Пожалуйста, выполните вход."

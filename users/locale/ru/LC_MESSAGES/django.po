@@ -22,7 +22,7 @@ msgstr ""
 
 #: users/views.py:16
 msgid "You have been signed up!"
-msgstr "Вы зарегистрированы"
+msgstr "Пользователь успешно зарегистрирован"
 
 #: users/views.py:21
 msgid "You are logged in!"
@@ -34,14 +34,14 @@ msgstr "Вы разлогинены"
 
 #: users/views.py:41
 msgid "Your profile has been updated"
-msgstr "Ваш профиль был обновлен"
+msgstr "Пользователь успешно изменён"
 
 #: users/views.py:51
 msgid "Your profile has been deleted"
-msgstr "Ваш профиль был удален"
+msgstr "Пользователь успешно удален"
 
 #~ msgid "You do not have access to this page"
-#~ msgstr "У вас нет доступа к этой странице"
+#~ msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
 #~ msgid "Are you sure you want to delete your account?"
 #~ msgstr "Вы уверены, что хотите удалить свой аккаунт?"

@@ -56,15 +56,15 @@ msgstr "Исполнитель"
 
 #: tasks/views.py:17
 msgid "You have created a new task!"
-msgstr "Вы создали новую задачу!"
+msgstr "Задача успешно создана"
 
 #: tasks/views.py:35
 msgid "Task has been updated"
-msgstr "Задача успешно обновлена"
+msgstr "Задача успешно изменена"
 
 #: tasks/views.py:43
 msgid "Task has been deleted"
 msgstr "Задача успешно удалена"
 
 #~ msgid "You do not have access to this page"
-#~ msgstr "У вас нет доступа к этой странице"
+#~ msgstr "Вы не авторизованы! Пожалуйста, выполните вход."

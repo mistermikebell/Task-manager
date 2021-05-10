@@ -26,15 +26,15 @@ msgstr "Название"
 
 #: statuses/views.py:15
 msgid "You have created a new status!"
-msgstr "Вы создали новый статус!"
+msgstr "Статус успешно создан"
 
 #: statuses/views.py:32
 msgid "Status has been updated"
-msgstr "Статус успешно обновлен"
+msgstr "Статус успешно изменен"
 
 #: statuses/views.py:40
 msgid "Status has been deleted"
 msgstr "Статус успешно удален"
 
 #~ msgid "You do not have access to this page"
-#~ msgstr "У вас нет доступа к этой странице"
+#~ msgstr "Вы не авторизованы! Пожалуйста, выполните вход."

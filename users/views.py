@@ -4,7 +4,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from users.forms import SignUpForm
+from users.forms import SignUpForm, UserUpdateForm
 from task_manager.views import LoginRequiredMixinRedirect
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -34,14 +34,12 @@ class UsersListView(generic.ListView):
     template_name = 'users/users-list.html'
 
 
-class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.UpdateView):
+class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.edit.UpdateView):
     model = User
     template_name = 'registration/user-update.html'
-    fields = ['username', 'email', 'first_name', 'last_name', 'password']
     success_message = _('Your profile has been updated')
-
-    def get_success_url(self):
-        return ''
+    success_url = reverse_lazy('home')
+    form_class = UserUpdateForm
 
 
 class DeleteUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.DeleteView):
