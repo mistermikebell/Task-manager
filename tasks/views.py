@@ -27,6 +27,11 @@ class TasksListView(LoginRequiredMixinRedirect, FilterView):
     filterset_class = TasksFilter
 
 
+class TaskDetailView(LoginRequiredMixinRedirect, generic.DetailView):
+    model = Task
+    template_name = 'tasks/task-details.html'
+
+
 class TaskUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.UpdateView):
     model = Task
     template_name = 'tasks/task-update.html'

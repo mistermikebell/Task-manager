@@ -35,7 +35,7 @@
   <tbody>
   {% for object in filter.qs %}
       <tr>
-          <td>{{ object.name }}</td>
+          <td><a href="{% url 'task_detail' object.id %}">{{ object.name }}</a></td>
           <td>{{ object.status }}</td>
           <td>{{ object.author }}</td>
           <td>{{ object.executor }}</td>
