@@ -1,1 +1,1 @@
-web: gunicorn --chdir task_manager.wsgi --log-file -
+web: gunicorn task_manager.wsgi --log-file -
