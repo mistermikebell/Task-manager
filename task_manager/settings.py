@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # 'django.contrib.staticfiles',
     'task_manager',
     'users',
     'statuses',
@@ -137,6 +137,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 # django_heroku.settings(locals(), databases=False)
