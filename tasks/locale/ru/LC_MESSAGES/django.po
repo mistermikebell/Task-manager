@@ -22,7 +22,7 @@ msgstr ""
 
 #: tasks/filters.py:12
 msgid "Show only my tasks"
-msgstr "Показать только мои задачи"
+msgstr "Только свои задачи"
 
 #: tasks/filters.py:14
 #, fuzzy
