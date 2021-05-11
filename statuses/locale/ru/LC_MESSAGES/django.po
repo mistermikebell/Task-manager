@@ -30,11 +30,11 @@ msgstr "Статус успешно создан"
 
 #: statuses/views.py:35
 msgid "Status has been updated"
-msgstr "Статус успешно изменен"
+msgstr "Статус успешно изменён"
 
 #: statuses/views.py:50
 msgid "Status has been deleted"
-msgstr "Статус успешно удален"
+msgstr "Статус успешно удалён"
 
 #: statuses/views.py:55
 msgid "Cannot delete this status, because the status is attached to an object!"
