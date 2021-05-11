@@ -14,7 +14,7 @@ class LabelCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateVie
     model = Label
     fields = ['name', 'description']
     template_name = 'labels/label-creation.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('labels_list')
     success_message = _('Label has been created successfully')
 
     def form_valid(self, form):
