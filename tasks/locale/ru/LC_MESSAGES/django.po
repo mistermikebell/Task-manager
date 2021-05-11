@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-10 21:02+0300\n"
+"POT-Creation-Date: 2021-05-11 13:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,10 +50,6 @@ msgstr "Метки"
 msgid "Description"
 msgstr "Описание"
 
-#: tasks/views.py:14
-msgid "executor"
-msgstr "Исполнитель"
-
 #: tasks/views.py:17
 msgid "You have created a new task!"
 msgstr "Задача успешно создана"
@@ -65,6 +61,9 @@ msgstr "Задача успешно изменена"
 #: tasks/views.py:43
 msgid "Task has been deleted"
 msgstr "Задача успешно удалена"
+
+#~ msgid "executor"
+#~ msgstr "Исполнитель"
 
 #~ msgid "You do not have access to this page"
 #~ msgstr "Вы не авторизованы! Пожалуйста, выполните вход."

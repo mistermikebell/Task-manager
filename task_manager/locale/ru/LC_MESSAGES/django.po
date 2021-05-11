@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-10 21:02+0300\n"
+"POT-Creation-Date: 2021-05-11 13:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,9 +104,17 @@ msgid "Update label"
 msgstr "Обновить метку"
 
 #: task_manager/templates/labels/label-update.html:11
+#: task_manager/templates/labels/labels-list.html:20
+#: task_manager/templates/labels/labels-list.html:31
+#: task_manager/templates/registration/user-update.html:18
 #: task_manager/templates/statuses/status-update.html:11
-msgid "Save"
-msgstr "Сохранить"
+#: task_manager/templates/statuses/statuses-list.html:19
+#: task_manager/templates/statuses/statuses-list.html:29
+#: task_manager/templates/tasks/task-update.html:11
+#: task_manager/templates/tasks/tasks-list.html:44
+#: task_manager/templates/users/users-list.html:26
+msgid "Change"
+msgstr "Изменить"
 
 #: task_manager/templates/labels/labels-list.html:6
 msgid "Labels list"
@@ -131,17 +139,6 @@ msgstr "Автор"
 #: task_manager/templates/users/users-list.html:14
 msgid "Created date"
 msgstr "Дата создания"
-
-#: task_manager/templates/labels/labels-list.html:20
-#: task_manager/templates/labels/labels-list.html:31
-#: task_manager/templates/registration/user-update.html:18
-#: task_manager/templates/statuses/statuses-list.html:19
-#: task_manager/templates/statuses/statuses-list.html:29
-#: task_manager/templates/tasks/task-update.html:11
-#: task_manager/templates/tasks/tasks-list.html:44
-#: task_manager/templates/users/users-list.html:26
-msgid "Change"
-msgstr "Изменить"
 
 #: task_manager/templates/labels/labels-list.html:32
 #: task_manager/templates/statuses/statuses-list.html:30
@@ -255,6 +252,9 @@ msgstr "Полное имя"
 #: task_manager/views.py:14
 msgid "You do not have access to this page"
 msgstr "У вас нет доступа к этой странице"
+
+#~ msgid "Save"
+#~ msgstr "Сохранить"
 
 #~ msgid "Confirm"
 #~ msgstr "Подтвердить"
