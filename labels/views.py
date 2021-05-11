@@ -35,6 +35,9 @@ class LabelUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.U
     success_message = _('Label has been updated successfully')
     success_url = reverse_lazy('labels_list')
 
+    def get_initial(self):
+        return {'description': Label.objects.get(pk=self.kwargs['pk']).description}
+
 
 class LabelDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
     model = Label

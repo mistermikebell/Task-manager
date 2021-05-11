@@ -35,6 +35,9 @@ class TaskUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.Up
     success_message = _('Task has been updated')
     success_url = reverse_lazy('tasks_list')
 
+    def get_initial(self):
+        return {'description': Task.objects.get(pk=self.kwargs['pk']).description}
+
 
 class TaskDeleteView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.DeleteView):
     model = Task
