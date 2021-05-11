@@ -1,7 +1,7 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-from users.models import UserModel
 
 
 class Label(models.Model):
@@ -9,7 +9,7 @@ class Label(models.Model):
     description = models.TextField(blank=True, null=True,
                                    verbose_name=_('Description'))
     created = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(UserModel, related_name='labels',
+    author = models.ForeignKey(User, related_name='labels',
                                on_delete=models.CASCADE)
 
     def __str__(self):

@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -8,11 +9,9 @@ from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from task_manager.views import LoginRequiredMixinRedirect
 from users.forms import SignUpForm, UserUpdateForm
-from users.models import UserModel
 
 
 class RegisterUserView(SuccessMessageMixin, generic.CreateView):
-    model = UserModel
     form_class = SignUpForm
     template_name = 'registration/user-register.html'
     success_url = reverse_lazy('login')
@@ -33,20 +32,29 @@ class LogoutUserView(SuccessMessageMixin, LogoutView):
 
 
 class UsersListView(generic.ListView):
-    model = UserModel
+    model = User
     template_name = 'users/users-list.html'
 
 
 class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.edit.UpdateView):
-    model = UserModel
+    model = User
     template_name = 'registration/user-update.html'
     success_message = _('Your profile has been updated')
     success_url = reverse_lazy('users_list')
     form_class = UserUpdateForm
 
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.id != self.request.user.id:
+            messages.add_message(
+                request, messages.ERROR,
+                _('You are not allowed to edit another user profile'))
+            return HttpResponseRedirect(reverse_lazy('users_list'))
+        return super(UpdateUserView, self).dispatch(request, *args, **kwargs)
+
 
 class DeleteUserView(LoginRequiredMixinRedirect, generic.DeleteView):
-    model = UserModel
+    model = User
     success_url = reverse_lazy('users_list')
     template_name = 'registration/user-delete.html'
 
