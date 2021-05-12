@@ -5,6 +5,7 @@ from tasks.models import Task
 from django.utils.translation import ugettext_lazy as _
 from labels.models import Label
 from django.contrib.auth.models import User
+from tasks.models import UserModel
 
 
 class TasksFilter(django_filters.FilterSet):
@@ -12,7 +13,7 @@ class TasksFilter(django_filters.FilterSet):
         field_name='author', label=_('Show only my tasks'),
         widget=forms.CheckboxInput, method='filter_author')
     labels = django_filters.ModelChoiceFilter(queryset=Label.objects.all(), label=_('Label'))
-    executor = django_filters.ModelChoiceFilter(queryset=User.objects.all(), label=_('Executor'))
+    executor = django_filters.ModelChoiceFilter(queryset=UserModel.objects.all(), label=_('Executor'))
 
     class Meta:
         model = Task
