@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
 from django.views.generic.edit import CreateView
@@ -44,8 +45,11 @@ class TaskUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.Up
         return {'description': Task.objects.get(pk=self.kwargs['pk']).description}
 
 
-class TaskDeleteView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.DeleteView):
+class TaskDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
     model = Task
     success_url = reverse_lazy('tasks_list')
     template_name = 'tasks/task-delete.html'
-    success_message = _('Task has been deleted')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, _('Task has been deleted'))
+        return super(TaskDeleteView, self).delete(request, *args, **kwargs)

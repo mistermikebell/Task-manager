@@ -1,10 +1,8 @@
 import django_filters
 
 from django import forms
-from tasks.models import Task
 from django.utils.translation import ugettext_lazy as _
 from labels.models import Label
-from django.contrib.auth.models import User
 from tasks.models import UserModel
 from statuses.models import Status
 
@@ -16,10 +14,6 @@ class TasksFilter(django_filters.FilterSet):
     labels = django_filters.ModelChoiceFilter(queryset=Label.objects.all())
     executor = django_filters.ModelChoiceFilter(queryset=UserModel.objects.all())
     status = django_filters.ModelChoiceFilter(queryset=Status.objects.all())
-
-    # class Meta:
-    #     model = Task
-    #     fields = ['status', 'labels', 'executor']
 
     def filter_author(self, queryset, name, value):
         if value:
