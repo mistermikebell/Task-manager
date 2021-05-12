@@ -12,10 +12,8 @@ jobs:
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
-      - name: Install dependencies
-        env:
-          SECRET_KEY: "*e_&13n42vkj9@m99@*(nsg8i-2&77h)n3jn1v9f@1c=1utsx%"
+          python-version  : 3.8
+      - name: Install dependencies      
         run: |
           pip install poetry
           make install
@@ -23,6 +21,8 @@ jobs:
         run: |
           make lint
       - name: Run tests
+        env:
+          SECRET_KEY: "*e_&13n42vkj9@m99@*(nsg8i-2&77h)n3jn1v9f@1c=1utsx%"
         run: |
           make test
 
