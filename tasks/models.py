@@ -6,6 +6,7 @@ from labels.models import Label
 from statuses.models import Status
 from users.models import UserModel
 
+
 class Task(models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Name'))
     status = models.ForeignKey(Status, on_delete=models.PROTECT,
@@ -29,4 +30,3 @@ class Task(models.Model):
 class LabelsTask(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     label = models.ForeignKey(Label, on_delete=models.PROTECT, blank=True, null=True)
-
