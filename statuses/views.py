@@ -55,4 +55,3 @@ class StatusDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
                                  _('Cannot delete this status, because'
                                    ' the status is attached to an object!'))
             return HttpResponseRedirect(reverse_lazy('users_list'))
-
