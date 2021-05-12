@@ -8,9 +8,9 @@ from django.contrib.auth.models import User
 
 
 class TasksFilter(django_filters.FilterSet):
-    boolean_executor = django_filters.BooleanFilter(
-        field_name='executor', label=_('Show only my tasks'),
-        widget=forms.CheckboxInput, method='filter_executor')
+    boolean_author = django_filters.BooleanFilter(
+        field_name='author', label=_('Show only my tasks'),
+        widget=forms.CheckboxInput, method='filter_author')
     labels = django_filters.ModelChoiceFilter(queryset=Label.objects.all(), label=_('Label'))
     executor = django_filters.ModelChoiceFilter(queryset=User.objects.all(), label=_('Executor'))
 
@@ -18,8 +18,8 @@ class TasksFilter(django_filters.FilterSet):
         model = Task
         fields = ['status', 'labels', 'executor']
 
-    def filter_executor(self, queryset, name, value):
+    def filter_author(self, queryset, name, value):
         if value:
-            queryset = queryset.filter(executor=self.request.user)
+            queryset = queryset.filter(author=self.request.user)
             return queryset
         return queryset
