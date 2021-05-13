@@ -1,10 +1,9 @@
-from tasks.models import Task
-from labels.models import Label
-from statuses.models import Status
-from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import Client, TestCase
 from django.urls import reverse
+from labels.models import Label
+from statuses.models import Status
+from tasks.models import Task
 from users.models import UserModel
 
 
@@ -59,9 +58,9 @@ class TaskFilterTest(TestCase):
 
     def setUp(self):
         self.user_1 = UserModel.objects.create_user(username='test_user_1',
-                                               password='1Password!')
+                                                    password='1Password!')
         self.user_2 = UserModel.objects.create_user(username='test_user_2',
-                                               password='1Password!')
+                                                    password='1Password!')
         self.status_1 = Status.objects.create(name='test_status',
                                               author=self.user_1)
         self.label_1 = Label.objects.create(name='test_label',

@@ -22,7 +22,7 @@ class UsersTest(TestCase):
 
     def test_login(self):
         response = self.c.post('/login/', {'username': 'test_user',
-                                                 'password': '1Password!'},
+                                           'password': '1Password!'},
                                follow=True)
         self.assertTrue(response.context['request'].user.is_authenticated)
         self.assertRedirects(response, '/')

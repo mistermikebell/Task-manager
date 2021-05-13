@@ -1,8 +1,9 @@
-from statuses.models import Status
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import Client, TestCase
 from django.urls import reverse
+from statuses.models import Status
 from users.models import UserModel
+
 
 class StatusesTest(TestCase):
 
