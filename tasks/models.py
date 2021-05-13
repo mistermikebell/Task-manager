@@ -17,7 +17,7 @@ class Task(models.Model):
     description = models.TextField(blank=True, null=True,
                                    verbose_name=_('Description'))
     created = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(User, related_name='tasks_author',
+    author = models.ForeignKey(UserModel, related_name='tasks_author',
                                on_delete=models.CASCADE)
     executor = models.ForeignKey(UserModel, related_name='tasks_executor',
                                  on_delete=models.PROTECT, blank=True, null=True,

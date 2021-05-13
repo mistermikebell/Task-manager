@@ -1,9 +1,9 @@
 from labels.models import Label
 from tasks.models import Task
-from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import Client, TestCase
 from django.urls import reverse
+from users.models import UserModel
 
 
 class LabelsTest(TestCase):
@@ -12,8 +12,8 @@ class LabelsTest(TestCase):
 
     def setUp(self):
         self.new_label = {'name': 'new_label', 'description': 'testing'}
-        self.test_user = User.objects.create_user(username='test_user',
-                                                  password='1Password!')
+        self.test_user = UserModel.objects.create_user(username='test_user',
+                                                       password='1Password!')
         self.test_task = Task.objects.create(name='test_task',
                                              author=self.test_user,
                                              executor=self.test_user)
@@ -25,7 +25,7 @@ class LabelsTest(TestCase):
     def test_label_creation(self):
         response = self.c.post('/labels/create/', self.new_label,
                                follow=True)
-        self.assertRedirects(response, reverse('home'))
+        self.assertRedirects(response, reverse('labels_list'))
         self.assertEqual('new_label',
                          Label.objects.get(name='new_label').name)
 
@@ -34,6 +34,7 @@ class LabelsTest(TestCase):
                     {'name': 'updated_test_label', 'description': 'testing'})
         self.test_label.refresh_from_db()
         self.assertEqual(self.test_label.name, 'updated_test_label')
+        self.assertEqual(self.test_label.description, 'testing')
 
     def test_label_delete(self):
         test_label_id = self.test_label.id

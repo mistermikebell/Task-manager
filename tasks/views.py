@@ -8,6 +8,7 @@ from django_filters.views import FilterView
 from tasks.models import Task
 from tasks.filters import TasksFilter
 from task_manager.views import LoginRequiredMixinRedirect
+from users.models import UserModel
 
 
 class TaskCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):

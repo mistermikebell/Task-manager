@@ -1,9 +1,8 @@
 from statuses.models import Status
-from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import Client, TestCase
 from django.urls import reverse
-
+from users.models import UserModel
 
 class StatusesTest(TestCase):
 
@@ -11,8 +10,8 @@ class StatusesTest(TestCase):
 
     def setUp(self):
         self.new_status = {'name': 'new_status'}
-        self.test_user = User.objects.create_user(username='test_user',
-                                                  password='1Password!')
+        self.test_user = UserModel.objects.create_user(username='test_user',
+                                                       password='1Password!')
         self.test_status = Status.objects.create(name='test_status',
                                                  author=self.test_user)
         self.c.login(username='test_user', password='1Password!')

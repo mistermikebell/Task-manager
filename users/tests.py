@@ -18,10 +18,10 @@ class UsersTest(TestCase):
 
     def test_signup(self):
         response = self.c.post('/users/create/', self.new_user, follow=True)
-        self.assertRedirects(response, '/')
+        self.assertRedirects(response, '/login/')
 
     def test_login(self):
-        response = self.c.post('/users/login/', {'username': 'test_user',
+        response = self.c.post('/login/', {'username': 'test_user',
                                                  'password': '1Password!'},
                                follow=True)
         self.assertTrue(response.context['request'].user.is_authenticated)
@@ -31,9 +31,16 @@ class UsersTest(TestCase):
         self.c.login(username='test_user', password='1Password!')
         self.c.post(reverse('update', args=str(self.test_user.id)),
                     {'username': 'updated_test_user',
-                     'password': '1Password!'})
+                     'first_name': 'test',
+                     'last_name': 'test',
+                     'email': 'email@email.com',
+                     'password1': '1Password!',
+                     'password2': '1Password!'})
         self.test_user.refresh_from_db()
         self.assertEqual(self.test_user.username, 'updated_test_user')
+        self.assertEqual(self.test_user.first_name, 'test')
+        self.assertEqual(self.test_user.last_name, 'test')
+        self.assertEqual(self.test_user.email, 'email@email.com')
 
     def test_delete(self):
         self.c.login(username='test_user', password='1Password!')
