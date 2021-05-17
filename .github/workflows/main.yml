@@ -28,6 +28,7 @@ jobs:
       - name: Coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
+          SECRET_KEY: "*e_&13n42vkj9@m99@*(nsg8i-2&77h)n3jn1v9f@1c=1utsx%"
           CC_TEST_REPORTER_ID: 0317e203635c4363d1d95fa7c92383dbd06180c1d9ccdfe899f2af76d67f649d
         with:
           coverageCommand: make test
