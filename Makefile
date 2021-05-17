@@ -2,7 +2,7 @@ install:
 	@poetry install
 
 test:
-	poetry run python manage.py test
+	poetry run coverage run --source='.' manage.py test
 
 lint:
 	poetry run flake8 task_manager
@@ -15,6 +15,12 @@ build:
 
 selfcheck:
 	poetry check
+
+preparetranslate:
+	poetry run django-admin makemessages -l ru
+
+translate:
+	poetry run django-admin compilemessages
 
 check: selfcheck test lint
 

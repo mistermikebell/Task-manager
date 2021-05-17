@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-11 19:12+0300\n"
+"POT-Creation-Date: 2021-05-16 14:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,16 +23,6 @@ msgstr ""
 #: tasks/filters.py:12
 msgid "Show only my tasks"
 msgstr "Только свои задачи"
-
-#: tasks/filters.py:14
-#, fuzzy
-#| msgid "Labels"
-msgid "Label"
-msgstr "Метки"
-
-#: tasks/filters.py:15 tasks/models.py:23
-msgid "Executor"
-msgstr "Исполнитель"
 
 #: tasks/models.py:10
 msgid "Name"
@@ -50,17 +40,26 @@ msgstr "Метки"
 msgid "Description"
 msgstr "Описание"
 
-#: tasks/views.py:17
+#: tasks/models.py:23
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: tasks/views.py:18
 msgid "You have created a new task!"
 msgstr "Задача успешно создана"
 
-#: tasks/views.py:40
+#: tasks/views.py:41
 msgid "Task has been updated"
 msgstr "Задача успешно изменена"
 
-#: tasks/views.py:51
+#: tasks/views.py:54
 msgid "Task has been deleted"
 msgstr "Задача успешно удалена"
+
+#, fuzzy
+#~| msgid "Labels"
+#~ msgid "Label"
+#~ msgstr "Метки"
 
 #~ msgid "executor"
 #~ msgstr "Исполнитель"
