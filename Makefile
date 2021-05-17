@@ -2,7 +2,7 @@ install:
 	@poetry install
 
 test:
-	poetry run coverage run --source='.' manage.py test
+	poetry run coverage run --source='.' manage.py test xml -d python-project-lvl4
 
 lint:
 	poetry run flake8 task_manager
