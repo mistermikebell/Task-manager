@@ -3,7 +3,8 @@ install:
 
 test:
 	poetry run coverage run --source='.' manage.py test
-	poetry run coverage json -o coverage.json
+	poetry run coverage xml
+	poetry run coverage report
 
 lint:
 	poetry run flake8 task_manager
