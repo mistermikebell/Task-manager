@@ -12,17 +12,18 @@ class SignUpForm(UserCreationForm):
 
 
 class UserUpdateForm(forms.ModelForm):
+    password1 = forms.CharField(widget=forms.PasswordInput(), label=_('Password'))
     password2 = forms.CharField(widget=forms.PasswordInput(), label=_('Password confirmation'))
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'password']
-        widgets = {
-            'password': forms.PasswordInput()
-        }
+        fields = ['username', 'email', 'first_name', 'last_name']
+        # widgets = {
+        #     'password': forms.PasswordInput()
+        # }
 
     def save(self, commit=True):
-        password1 = self.cleaned_data.get("password")
+        password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         user = super().save(commit=commit)
         if password1 and password2 and password1 != password2:
