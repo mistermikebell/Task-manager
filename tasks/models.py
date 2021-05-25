@@ -26,6 +26,6 @@ class Task(models.Model):
         return self.name
 
 
-# class TaskLabels(models.Model):
-#     task = models.ForeignKey(Task, on_delete=models.CASCADE)
-#     label = models.ForeignKey(Label, on_delete=models.CASCADE)
+class TaskLabels(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.CASCADE)
