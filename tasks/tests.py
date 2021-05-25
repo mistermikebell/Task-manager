@@ -93,7 +93,7 @@ class TaskFilterTest(TestCase):
 
     def test_executor_filter(self):
         response = self.client.get(reverse('tasks_list'),
-                              {'executor': self.user_1.id})
+                                   {'executor': self.user_1.id})
         self.assertQuerysetEqual(
             response.context['object_list'],
             Task.objects.filter(executor=self.user_1),
@@ -101,7 +101,7 @@ class TaskFilterTest(TestCase):
 
     def test_status_filter(self):
         response = self.client.get(reverse('tasks_list'),
-                              {'status': self.status_1.id})
+                                   {'status': self.status_1.id})
         self.assertQuerysetEqual(
             response.context['object_list'],
             Task.objects.filter(status=self.status_1),

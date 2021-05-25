@@ -1,9 +1,7 @@
 from labels.models import Label
-from tasks.models import Task
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
 from django.urls import reverse
-from statuses.models import Status
 from users.models import UserModel
 
 

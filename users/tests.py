@@ -34,7 +34,7 @@ class UsersTest(TestCase):
                           'first_name': 'test',
                           'last_name': 'test',
                           'email': 'email@email.com',
-                          'password': '1Password!',
+                          'password1': '1Password!',
                           'password2': '1Password!'})
         self.test_user.refresh_from_db()
         self.assertEqual(self.test_user.username, 'updated_test_user')
