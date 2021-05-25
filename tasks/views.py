@@ -6,8 +6,8 @@ from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django_filters.views import FilterView
 from tasks.models import Task
-from tasks.filters import TasksFilter
-from task_manager.views import LoginRequiredMixinRedirect
+from tasks.filters import TasksFilter, UserTasksListFilter
+from task_manager.mixins import LoginRequiredMixinRedirect
 
 
 class TaskCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
@@ -53,3 +53,13 @@ class TaskDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, _('Task has been deleted'))
         return super(TaskDeleteView, self).delete(request, *args, **kwargs)
+
+
+class UserTasksListView(FilterView):
+    model = Task
+    template_name = 'index.html'
+    filterset_class = UserTasksListFilter
+
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return Task.objects.filter(executor=self.request.user)

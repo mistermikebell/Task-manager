@@ -10,7 +10,7 @@ class Label(models.Model):
                                    verbose_name=_('Description'))
     created = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(UserModel, related_name='labels',
-                               on_delete=models.CASCADE)
+                               on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name

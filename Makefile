@@ -18,6 +18,9 @@ build:
 selfcheck:
 	poetry check
 
+run:
+	poetry run python manage.py
+
 preparetranslate:
 	poetry run django-admin makemessages -l ru
 
@@ -25,5 +28,9 @@ translate:
 	poetry run django-admin compilemessages
 
 check: selfcheck test lint
+
+server:
+	poetry run python manage.py runserver
+
 
 .PHONY: install test lint selfcheck check build

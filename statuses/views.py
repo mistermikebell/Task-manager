@@ -7,7 +7,7 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from statuses.models import Status
-from task_manager.views import LoginRequiredMixinRedirect
+from task_manager.mixins import LoginRequiredMixinRedirect
 
 
 class StatusCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
@@ -44,14 +44,13 @@ class StatusDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
     def delete(self, request, *args, **kwargs):
 
         try:
-            self.object = self.get_object()
-            self.object.delete()
-            messages.add_message(request, messages.SUCCESS,
-                                 _('Status has been deleted'))
-            return HttpResponseRedirect(self.get_success_url())
+            super().delete(request, *args, **kwargs)
+            messages.success(request,
+                             _('Status has been deleted'))
+            return HttpResponseRedirect(self.success_url)
 
         except ProtectedError:
-            messages.add_message(request, messages.ERROR,
-                                 _('Cannot delete this status, because'
-                                   ' the status is attached to an object!'))
-            return HttpResponseRedirect(reverse_lazy('users_list'))
+            messages.error(request,
+                           _('Cannot delete this status, because'
+                             ' the status is attached to an object!'))
+            return HttpResponseRedirect(reverse_lazy('statuses_list'))

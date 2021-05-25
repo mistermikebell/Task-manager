@@ -9,16 +9,16 @@ from users.models import UserModel
 class Task(models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Name'))
     status = models.ForeignKey(Status, on_delete=models.PROTECT,
-                               verbose_name=_('Status'), blank=True, null=True)
-    labels = models.ManyToManyField(Label, through='LabelsTask',
+                               verbose_name=_('Status'))
+    labels = models.ManyToManyField(Label, through='TaskLabels',
                                     verbose_name=_('Labels'),
                                     blank=True)
     description = models.TextField(blank=True, null=True,
                                    verbose_name=_('Description'))
     created = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(UserModel, related_name='tasks_author',
+    author = models.ForeignKey(UserModel, related_name='task_author',
                                on_delete=models.CASCADE)
-    executor = models.ForeignKey(UserModel, related_name='tasks_executor',
+    executor = models.ForeignKey(UserModel, related_name='task_executor',
                                  on_delete=models.PROTECT, blank=True, null=True,
                                  verbose_name=_('Executor'))
 
@@ -26,6 +26,6 @@ class Task(models.Model):
         return self.name
 
 
-class LabelsTask(models.Model):
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    label = models.ForeignKey(Label, on_delete=models.PROTECT, blank=True, null=True)
+# class TaskLabels(models.Model):
+#     task = models.ForeignKey(Task, on_delete=models.CASCADE)
+#     label = models.ForeignKey(Label, on_delete=models.CASCADE)
