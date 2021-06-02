@@ -8,7 +8,7 @@ from django_filters.views import FilterView
 from tasks.models import Task
 from tasks.filters import TasksFilter, UserTasksListFilter
 from task_manager.mixins import LoginRequiredMixinRedirect
-
+from tasks.forms import UpdateTaskForm
 
 class TaskCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
     model = Task
@@ -36,13 +36,10 @@ class TaskDetailView(LoginRequiredMixinRedirect, generic.DetailView):
 class TaskUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.UpdateView):
     model = Task
     template_name = 'tasks/task-update.html'
-    fields = ['name', 'status', 'labels', 'description', 'executor']
+    form_class = UpdateTaskForm
     login_url = 'login'
     success_message = _('Task has been updated')
     success_url = reverse_lazy('tasks_list')
-
-    def get_initial(self):
-        return {'description': Task.objects.get(pk=self.kwargs['pk']).description}
 
 
 class TaskDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
@@ -52,7 +49,7 @@ class TaskDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, _('Task has been deleted'))
-        return super(TaskDeleteView, self).delete(request, *args, **kwargs)
+        return super().delete(request, *args, **kwargs)
 
 
 class UserTasksListView(FilterView):
@@ -62,4 +59,4 @@ class UserTasksListView(FilterView):
 
     def get_queryset(self):
         if self.request.user.is_authenticated:
-            return Task.objects.filter(executor=self.request.user)
+            return super().get_query_set().filter(executor=self.request.user)

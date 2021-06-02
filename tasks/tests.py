@@ -26,9 +26,10 @@ class TasksTest(TestCase):
         response = self.client.post('/tasks/create/',
                                     {'name': 'new_task',
                                      'status': self.test_status.id,
-                                     'description': '',
+                                     'description': 'test',
                                      'executor': '',
-                                     'labels': []},
+                                     'labels': []
+                                     },
                                     follow=True)
         self.assertRedirects(response, reverse('tasks_list'))
         self.assertEqual('new_task',
@@ -39,13 +40,13 @@ class TasksTest(TestCase):
                          {'name': 'updated_test_task',
                           'status': self.test_status.id,
                           'labels': [self.test_label.id],
-                          'description': 'test',
+                          'description': 'new test',
                           'executor': self.test_user.id})
         self.test_task.refresh_from_db()
         self.assertEqual(self.test_task.name, 'updated_test_task')
         self.assertEqual(self.test_task.status, self.test_status)
         self.assertEqual(self.test_task.labels.all()[0], self.test_label)
-        self.assertEqual(self.test_task.description, 'test')
+        self.assertEqual(self.test_task.description, 'new test')
         self.assertEqual(self.test_task.executor, self.test_user)
 
     def test_delete(self):

@@ -1,13 +1,11 @@
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from django.db.models import ProtectedError
-from django.http import HttpResponseRedirect
 from django.views import generic
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
+from labels.forms import UpdateLabelForm
 from labels.models import Label
-from task_manager.mixins import LoginRequiredMixinRedirect
+from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
 
 
 class LabelCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
@@ -30,30 +28,18 @@ class LabelListView(LoginRequiredMixinRedirect, generic.ListView):
 class LabelUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.UpdateView):
     model = Label
     template_name = 'labels/label-update.html'
-    fields = ['name', 'description']
+    form_class = UpdateLabelForm
     login_url = 'login'
     success_message = _('Label has been updated successfully')
     success_url = reverse_lazy('labels_list')
 
-    def get_initial(self):
-        return {'description': Label.objects.get(pk=self.kwargs['pk']).description}
 
-
-class LabelDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
+class LabelDeleteView(LoginRequiredMixinRedirect, generic.DeleteView,
+                      DeletionErrorMixin):
     model = Label
     success_url = reverse_lazy('labels_list')
     template_name = 'labels/label-delete.html'
-
-    def delete(self, request, *args, **kwargs):
-
-        try:
-            super().delete(request, *args, **kwargs)
-            messages.success(request,
-                             _('Label has been deleted successfully'))
-            return HttpResponseRedirect(self.success_url)
-
-        except ProtectedError:
-            messages.error(request,
-                           _('Cannot delete this label, because'
-                             ' the label is attached to an object!'))
-            return HttpResponseRedirect(reverse_lazy('labels_list'))
+    deletion_success_url = reverse_lazy('labels_list')
+    deletion_success_message = _('Label has been deleted successfully')
+    deletion_error_message = _('Cannot delete this label, '
+                               'because the label is attached to an object!')

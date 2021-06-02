@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-16 14:36+0300\n"
+"POT-Creation-Date: 2021-06-03 00:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,14 +20,6 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: users/forms.py:15
-msgid "Password"
-msgstr "Пароль"
-
-#: users/forms.py:16
-msgid "Password confirmation"
-msgstr "Подтверждение пароля"
-
 #: users/views.py:18
 msgid "You have been signed up!"
 msgstr "Пользователь успешно зарегистрирован"
@@ -36,25 +28,31 @@ msgstr "Пользователь успешно зарегистрирован"
 msgid "You are logged in!"
 msgstr "Вы залогинены"
 
-#: users/views.py:30
+#: users/views.py:29
 msgid "You are logged out!"
 msgstr "Вы разлогинены"
 
-#: users/views.py:42
+#: users/views.py:41
 msgid "Your profile has been updated"
 msgstr "Пользователь успешно изменён"
 
-#: users/views.py:51
+#: users/views.py:50
 msgid "You are not allowed to edit another user profile"
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: users/views.py:67
+#: users/views.py:61
 msgid "Your profile has been deleted"
 msgstr "Пользователь успешно удалён"
 
-#: users/views.py:72
+#: users/views.py:62
 msgid "Cannot delete this user, because the user is attached to an object!"
 msgstr "Невозможно удалить пользователя, потому что он используется"
+
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgid "Password confirmation"
+#~ msgstr "Подтверждение пароля"
 
 #~ msgid "You do not have access to this page"
 #~ msgstr "Вы не авторизованы! Пожалуйста, выполните вход."

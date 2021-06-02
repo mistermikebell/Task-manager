@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-16 14:36+0300\n"
+"POT-Creation-Date: 2021-06-03 00:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,19 +28,19 @@ msgstr "Название"
 msgid "Description"
 msgstr "Описание"
 
-#: labels/views.py:18
+#: labels/views.py:16
 msgid "Label has been created successfully"
 msgstr "Метка успешно создана"
 
-#: labels/views.py:35
+#: labels/views.py:33
 msgid "Label has been updated successfully"
 msgstr "Метка успешно изменена"
 
-#: labels/views.py:53
+#: labels/views.py:43
 msgid "Label has been deleted successfully"
 msgstr "Метка успешно удалена"
 
-#: labels/views.py:58
+#: labels/views.py:44
 msgid "Cannot delete this label, because the label is attached to an object!"
 msgstr "Невозможно удалить метку, потому что она используется"
 

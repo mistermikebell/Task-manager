@@ -1,13 +1,10 @@
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from django.db.models import ProtectedError
-from django.http import HttpResponseRedirect
 from django.views import generic
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from statuses.models import Status
-from task_manager.mixins import LoginRequiredMixinRedirect
+from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
 
 
 class StatusCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
@@ -36,21 +33,12 @@ class StatusUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.
     success_url = reverse_lazy('statuses_list')
 
 
-class StatusDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
+class StatusDeleteView(LoginRequiredMixinRedirect, generic.DeleteView,
+                       DeletionErrorMixin):
     model = Status
     success_url = reverse_lazy('statuses_list')
     template_name = 'statuses/status-delete.html'
-
-    def delete(self, request, *args, **kwargs):
-
-        try:
-            super().delete(request, *args, **kwargs)
-            messages.success(request,
-                             _('Status has been deleted'))
-            return HttpResponseRedirect(self.success_url)
-
-        except ProtectedError:
-            messages.error(request,
-                           _('Cannot delete this status, because'
-                             ' the status is attached to an object!'))
-            return HttpResponseRedirect(reverse_lazy('statuses_list'))
+    deletion_success_url = reverse_lazy('statuses_list')
+    deletion_success_message = _('Status has been deleted')
+    deletion_error_message = _('Cannot delete this status, '
+                               'because the status is attached to an object!')

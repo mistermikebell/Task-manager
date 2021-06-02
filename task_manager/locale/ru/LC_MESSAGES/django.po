@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-16 14:36+0300\n"
+"POT-Creation-Date: 2021-06-03 00:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: task_manager/mixins.py:10
+msgid "You do not have access to this page"
+msgstr "У вас нет доступа к этой странице"
+
+#: task_manager/mixins.py:21
+msgid "Object has been deleted"
+msgstr "Объект успешно удален"
+
+#: task_manager/mixins.py:22
+msgid "Cannot delete this object, because the status is attached to an object!"
+msgstr "Невозможно удалить объект, потому что он используется"
 
 #: task_manager/templates/base.html:41
 msgid "Task manager"
@@ -94,9 +106,9 @@ msgid "Are you sure you want to delete label"
 msgstr "Вы действительно хотите удалить метку?"
 
 #: task_manager/templates/labels/label-delete.html:8
-#: task_manager/templates/registration/user-delete.html:8
 #: task_manager/templates/statuses/status-delete.html:8
 #: task_manager/templates/tasks/task-delete.html:8
+#: task_manager/templates/users/registration/user-delete.html:8
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
@@ -107,13 +119,13 @@ msgstr "Обновить метку"
 #: task_manager/templates/labels/label-update.html:11
 #: task_manager/templates/labels/labels-list.html:20
 #: task_manager/templates/labels/labels-list.html:31
-#: task_manager/templates/registration/user-update.html:18
 #: task_manager/templates/statuses/status-update.html:11
 #: task_manager/templates/statuses/statuses-list.html:19
 #: task_manager/templates/statuses/statuses-list.html:29
 #: task_manager/templates/tasks/task-details.html:49
 #: task_manager/templates/tasks/task-update.html:11
 #: task_manager/templates/tasks/tasks-list.html:47
+#: task_manager/templates/users/registration/user-update.html:18
 #: task_manager/templates/users/users-list.html:26
 msgid "Change"
 msgstr "Изменить"
@@ -156,30 +168,6 @@ msgstr "Удалить"
 #: task_manager/templates/labels/labels-list.html:40
 msgid "There are no labels."
 msgstr "Меток нет"
-
-#: task_manager/templates/registration/user-delete.html:7
-msgid "Are you sure you want to delete your account?"
-msgstr "Вы действительно хотите удалить свой аккаунт?"
-
-#: task_manager/templates/registration/user-login.html:11
-msgid "Log in"
-msgstr "Войти"
-
-#: task_manager/templates/registration/user-register.html:8
-msgid "Please sign in"
-msgstr "Пожалуйства, зарегистрируйтесь"
-
-#: task_manager/templates/registration/user-register.html:11
-msgid "Sign in"
-msgstr "Зарегистрировать"
-
-#: task_manager/templates/registration/user-update.html:8
-msgid "Update profile information"
-msgstr "Обновить профиль"
-
-#: task_manager/templates/registration/user-update.html:14
-msgid "Delete my profile"
-msgstr "Удалить профиль"
 
 #: task_manager/templates/statuses/status-creation.html:8
 #: task_manager/templates/statuses/statuses-list.html:9
@@ -247,6 +235,30 @@ msgstr "Только свои задачи"
 msgid "Task"
 msgstr "Задача"
 
+#: task_manager/templates/users/registration/user-delete.html:7
+msgid "Are you sure you want to delete your account?"
+msgstr "Вы действительно хотите удалить свой аккаунт?"
+
+#: task_manager/templates/users/registration/user-login.html:11
+msgid "Log in"
+msgstr "Войти"
+
+#: task_manager/templates/users/registration/user-register.html:8
+msgid "Please sign in"
+msgstr "Пожалуйства, зарегистрируйтесь"
+
+#: task_manager/templates/users/registration/user-register.html:11
+msgid "Sign in"
+msgstr "Зарегистрировать"
+
+#: task_manager/templates/users/registration/user-update.html:8
+msgid "Update profile information"
+msgstr "Обновить профиль"
+
+#: task_manager/templates/users/registration/user-update.html:14
+msgid "Delete my profile"
+msgstr "Удалить профиль"
+
 #: task_manager/templates/users/users-list.html:6
 msgid "Users list"
 msgstr "Список пользователей"
@@ -262,10 +274,6 @@ msgstr "Имя пользователя"
 #: task_manager/templates/users/users-list.html:13
 msgid "Full name"
 msgstr "Полное имя"
-
-#: task_manager/views.py:14
-msgid "You do not have access to this page"
-msgstr "У вас нет доступа к этой странице"
 
 #~ msgid "Show"
 #~ msgstr "Показать"

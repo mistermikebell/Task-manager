@@ -1,17 +1,17 @@
-from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.db.models import ProtectedError
 from django.http import HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from task_manager.mixins import LoginRequiredMixinRedirect
+from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
 from users.forms import SignUpForm, UserUpdateForm
+from users.models import UserModel
 
 
 class RegisterUserView(SuccessMessageMixin, generic.CreateView):
+    model = UserModel
     form_class = SignUpForm
     template_name = 'users/registration/user-register.html'
     success_url = reverse_lazy('login')
@@ -31,12 +31,12 @@ class LogoutUserView(SuccessMessageMixin, LogoutView):
 
 
 class UsersListView(generic.ListView):
-    model = User
+    model = UserModel
     template_name = 'users/users-list.html'
 
 
 class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.edit.UpdateView):
-    model = User
+    model = UserModel
     template_name = 'users/registration/user-update.html'
     success_message = _('Your profile has been updated')
     success_url = reverse_lazy('users_list')
@@ -52,19 +52,12 @@ class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.ed
         return handler
 
 
-class DeleteUserView(LoginRequiredMixinRedirect, generic.DeleteView):
-    model = User
+class DeleteUserView(LoginRequiredMixinRedirect, generic.DeleteView,
+                     DeletionErrorMixin):
+    model = UserModel
     success_url = reverse_lazy('users_list')
-
     template_name = 'users/registration/user-delete.html'
-
-    def delete(self, request, *args, **kwargs):
-        try:
-            super().delete(request, *args, **kwargs)
-            messages.success(self.request, _('Your profile has been deleted'))
-            return HttpResponseRedirect(self.success_url)
-        except ProtectedError:
-            messages.error(request,
-                           _('Cannot delete this user, because'
-                             ' the user is attached to an object!'))
-            return HttpResponseRedirect(reverse_lazy('users_list'))
+    deletion_success_url = reverse_lazy('users_list')
+    deletion_success_message = _('Your profile has been deleted')
+    deletion_error_message = _('Cannot delete this user, '
+                               'because the user is attached to an object!')

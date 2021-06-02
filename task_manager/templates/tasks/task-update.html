@@ -11,4 +11,20 @@
         <button class="w-100 btn btn-lg btn-primary" type="submit">{% trans 'Change' %}</button>
     </form>
 
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.name }}-->
+<!--        {{ form.description }}-->
+<!--        {{ form.description.value|default_if_none:"" }}-->
+
+<!--        <div class="form-group"><label for="id_name">Имя</label></div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="id_description">Описание</label>-->
+<!--            <textarea name="description" cols="40" rows="10" class="form-control" placeholder="{{ form.description.value|default_if_none:'' }}" title="" id="id_description" spellcheck="false"></textarea></div>-->
+<!--        <div class="form-group"><label for="id_status">Статус</label></div>-->
+<!--        <div class="form-group"><label for="id_executor">Исполнитель</label></div>-->
+<!--        <div class="form-group"><label for="id_labels">Метки</label></div>-->
+<!--        <div class="form-group"></div>-->
+<!--</form>-->
+
 {% endblock %}
