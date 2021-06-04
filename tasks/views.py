@@ -5,10 +5,11 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django_filters.views import FilterView
-from tasks.models import Task
 from tasks.filters import TasksFilter, UserTasksListFilter
-from task_manager.mixins import LoginRequiredMixinRedirect
 from tasks.forms import UpdateTaskForm
+from tasks.models import Task
+from task_manager.mixins import LoginRequiredMixinRedirect
+
 
 class TaskCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
     model = Task
