@@ -13,7 +13,7 @@ class Task(models.Model):
     labels = models.ManyToManyField(Label, through='TaskLabels',
                                     verbose_name=_('Labels'),
                                     blank=True)
-    description = models.TextField(default='',
+    description = models.TextField(blank=True,
                                    verbose_name=_('Description'))
     created = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(UserModel, related_name='task_author',
