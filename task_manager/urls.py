@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from task_manager import views
+from tasks import views
 from users import views as users_views
 
 urlpatterns = [
-    path('', views.MyTasksListView.as_view(), name='home'),
+    path('', views.UserTasksListView.as_view(), name='home'),
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('statuses/', include('statuses.urls')),

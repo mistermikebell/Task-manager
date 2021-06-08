@@ -9,21 +9,18 @@
       <br>
       {% if user.is_authenticated %}
       <div class="container">
-        <h2 class="mt-4">{% trans "My tasks" %}</h2>
         <br>
-            <div class="card">
-              <div class="card-body">
-                <button type="button" class="btn btn-outline-primary">{% trans "Add a new task" %}</button>
-              </div>
-            </div>
+          <button type="button" class="btn btn-outline-primary" value="{% url 'status_creation' %}"><a href="{% url 'task_creation' %}" class="btn btn-primary">{% trans 'Create a new task' %}</a></button>
       </div>
+        <br>
+        <h2 class="mt-4">{% trans "My tasks" %}</h2>
         <br>
         <form method="get">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-              {% for status in filter.form.status %}
-              <li class="nav-item" role="presentation">
-                <button type="submit" class="btn btn-outline-primary" name="status" value="{{ status.id }}">{{ status }}</button>
-              </li>
+              {% for status in statuses %}
+                <li>
+                    <button type="submit"  class="btn btn-outline-primary" name="status" value="{{ status.id }}">{{ status }}</button>
+                </li>
               {% endfor %}
         </ul>
         </form>

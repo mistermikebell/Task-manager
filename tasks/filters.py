@@ -21,8 +21,3 @@ class TasksFilter(django_filters.FilterSet):
         if value:
             queryset = queryset.filter(author=self.request.user)
         return queryset
-
-
-class UserTasksListFilter(django_filters.FilterSet):
-    status = django_filters.ModelMultipleChoiceFilter(
-        queryset=Status.objects.all())

@@ -5,7 +5,7 @@ from users.models import UserModel
 
 
 class Status(models.Model):
-    name = models.CharField(max_length=200, verbose_name=_('Name'))
+    name = models.CharField(max_length=200, verbose_name=_('Name'), unique=True)
     created = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(UserModel, related_name='statuses', on_delete=models.PROTECT)
 

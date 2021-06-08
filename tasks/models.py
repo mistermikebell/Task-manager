@@ -16,9 +16,9 @@ class Task(models.Model):
     description = models.TextField(blank=True,
                                    verbose_name=_('Description'))
     created = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(UserModel, related_name='task_author',
+    author = models.ForeignKey(UserModel, related_name='tasks',
                                on_delete=models.CASCADE)
-    executor = models.ForeignKey(UserModel, related_name='task_executor',
+    executor = models.ForeignKey(UserModel, related_name='executable_tasks',
                                  on_delete=models.PROTECT, blank=True, null=True,
                                  verbose_name=_('Executor'))
 
@@ -27,5 +27,5 @@ class Task(models.Model):
 
 
 class TaskLabels(models.Model):
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    label = models.ForeignKey(Label, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.DO_NOTHING)
+    label = models.ForeignKey(Label, on_delete=models.DO_NOTHING)

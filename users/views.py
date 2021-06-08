@@ -6,7 +6,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
-from users.forms import SignUpForm, UserUpdateForm
+from users.forms import SignUpForm
 from users.models import UserModel
 
 
@@ -26,7 +26,7 @@ class LoginUserView(SuccessMessageMixin, LoginView):
 class LogoutUserView(SuccessMessageMixin, LogoutView):
 
     def dispatch(self, request, *args, **kwargs):
-        messages.warning(request, _('You are logged out!'))
+        messages.info(request, _('You are logged out!'))
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -37,27 +37,24 @@ class UsersListView(generic.ListView):
 
 class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.edit.UpdateView):
     model = UserModel
+    fields = ['username', 'email', 'first_name', 'last_name']
     template_name = 'users/registration/user-update.html'
     success_message = _('Your profile has been updated')
     success_url = reverse_lazy('users_list')
-    form_class = UserUpdateForm
 
     def dispatch(self, request, *args, **kwargs):
-        handler = super().dispatch(request, *args, **kwargs)
-        obj = self.get_object()
-        if obj.id != self.request.user.id:
+        if self.get_object().id != self.request.user.id:
             messages.error(request,
                            _('You are not allowed to edit another user profile'))
             return HttpResponseRedirect(reverse_lazy('users_list'))
-        return handler
+        return super().dispatch(request, *args, **kwargs)
 
 
 class DeleteUserView(LoginRequiredMixinRedirect, generic.DeleteView,
                      DeletionErrorMixin):
     model = UserModel
-    success_url = reverse_lazy('users_list')
     template_name = 'users/registration/user-delete.html'
-    deletion_success_url = reverse_lazy('users_list')
-    deletion_success_message = _('Your profile has been deleted')
-    deletion_error_message = _('Cannot delete this user, '
-                               'because the user is attached to an object!')
+    success_url = reverse_lazy('users_list')
+    success_message = _('Your profile has been deleted')
+    error_message = _('Cannot delete this user, '
+                      'because the user is attached to an object!')

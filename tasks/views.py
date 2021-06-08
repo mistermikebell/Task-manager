@@ -1,14 +1,14 @@
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django_filters.views import FilterView
-from tasks.filters import TasksFilter, UserTasksListFilter
+from statuses.models import Status
+from tasks.filters import TasksFilter
 from tasks.forms import UpdateTaskForm
 from tasks.models import Task
-from task_manager.mixins import LoginRequiredMixinRedirect
+from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
 
 
 class TaskCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
@@ -38,26 +38,26 @@ class TaskUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.Up
     model = Task
     template_name = 'tasks/task-update.html'
     form_class = UpdateTaskForm
-    login_url = 'login'
     success_message = _('Task has been updated')
     success_url = reverse_lazy('tasks_list')
 
 
-class TaskDeleteView(LoginRequiredMixinRedirect, generic.DeleteView):
+class TaskDeleteView(LoginRequiredMixinRedirect, DeletionErrorMixin, generic.DeleteView):
     model = Task
-    success_url = reverse_lazy('tasks_list')
     template_name = 'tasks/task-delete.html'
-
-    def delete(self, request, *args, **kwargs):
-        messages.success(self.request, _('Task has been deleted'))
-        return super().delete(request, *args, **kwargs)
+    success_url = reverse_lazy('tasks_list')
+    success_message = _('Task has been deleted')
 
 
 class UserTasksListView(FilterView):
     model = Task
     template_name = 'index.html'
-    filterset_class = UserTasksListFilter
+    filterset_fields = ['status']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({'statuses': Status.objects.all()})
+        return context
 
     def get_queryset(self):
-        if self.request.user.is_authenticated:
-            return super().get_query_set().filter(executor=self.request.user)
+        return Task.objects.filter(executor=self.request.user)

@@ -28,7 +28,6 @@ class StatusUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.
     model = Status
     template_name = 'statuses/status-update.html'
     fields = ['name']
-    login_url = 'login'
     success_message = _('Status has been updated')
     success_url = reverse_lazy('statuses_list')
 
@@ -36,9 +35,8 @@ class StatusUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.
 class StatusDeleteView(LoginRequiredMixinRedirect, generic.DeleteView,
                        DeletionErrorMixin):
     model = Status
-    success_url = reverse_lazy('statuses_list')
     template_name = 'statuses/status-delete.html'
-    deletion_success_url = reverse_lazy('statuses_list')
-    deletion_success_message = _('Status has been deleted')
-    deletion_error_message = _('Cannot delete this status, '
-                               'because the status is attached to an object!')
+    success_url = reverse_lazy('statuses_list')
+    success_message = _('Status has been deleted')
+    error_message = _('Cannot delete this status, '
+                      'because the status is attached to an object!')

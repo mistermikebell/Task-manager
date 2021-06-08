@@ -5,7 +5,7 @@ from users.models import UserModel
 
 
 class Label(models.Model):
-    name = models.CharField(max_length=200, verbose_name=_('Name'))
+    name = models.CharField(max_length=200, verbose_name=_('Name'), unique=True)
     description = models.TextField(blank=True,
                                    verbose_name=_('Description'))
     created = models.DateTimeField(default=timezone.now)

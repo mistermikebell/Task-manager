@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django_filters'
 ]
 
+AUTH_USER_MODEL = 'users.UserModel'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -134,7 +136,3 @@ LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
-
-# STATIC_URL = '/static/'
-
-# django_heroku.settings(locals(), databases=False)

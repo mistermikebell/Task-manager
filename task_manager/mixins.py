@@ -12,22 +12,20 @@ class LoginRequiredMixinRedirect(LoginRequiredMixin):
     redirect_url = reverse_lazy('login')
 
     def handle_no_permission(self):
-        if not self.request.user.is_authenticated:
-            messages.error(self.request, self.error_message)
+        messages.error(self.request, self.error_message)
         return self.redirect_url
 
 
 class DeletionErrorMixin(DeletionMixin):
-    deletion_success_url = reverse_lazy('home')
-    deletion_success_message = _('Object has been deleted')
-    deletion_error_message = _('Cannot delete this object,'
-                               ' because the status is attached to an object!')
+    success_url = reverse_lazy('home')
+    success_message = _('Object has been deleted')
+    error_message = _('Cannot delete this object,'
+                      ' because the status is attached to an object!')
 
     def delete(self, request, *args, **kwargs):
         try:
-            messages.success(request, self.deletion_success_message)
+            messages.success(request, self.success_message)
             return super().delete(request, *args, **kwargs)
-
         except ProtectedError:
-            messages.error(request, self.deletion_error_message)
-            return HttpResponseRedirect(self.deletion_success_url)
+            messages.error(request, self.error_message)
+            return HttpResponseRedirect(self.success_url)

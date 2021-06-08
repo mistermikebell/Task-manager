@@ -29,7 +29,6 @@ class LabelUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.U
     model = Label
     template_name = 'labels/label-update.html'
     form_class = UpdateLabelForm
-    login_url = 'login'
     success_message = _('Label has been updated successfully')
     success_url = reverse_lazy('labels_list')
 
@@ -37,9 +36,8 @@ class LabelUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.U
 class LabelDeleteView(LoginRequiredMixinRedirect, generic.DeleteView,
                       DeletionErrorMixin):
     model = Label
-    success_url = reverse_lazy('labels_list')
     template_name = 'labels/label-delete.html'
-    deletion_success_url = reverse_lazy('labels_list')
-    deletion_success_message = _('Label has been deleted successfully')
-    deletion_error_message = _('Cannot delete this label, '
-                               'because the label is attached to an object!')
+    success_url = reverse_lazy('labels_list')
+    success_message = _('Label has been deleted successfully')
+    error_message = _('Cannot delete this label, '
+                      'because the label is attached to an object!')
