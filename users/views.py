@@ -6,7 +6,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
-from users.forms import SignUpForm
+from users.forms import SignUpForm, UserUpdateForm
 from users.models import UserModel
 
 
@@ -37,7 +37,7 @@ class UsersListView(generic.ListView):
 
 class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.edit.UpdateView):
     model = UserModel
-    fields = ['username', 'email', 'first_name', 'last_name']
+    form_class = UserUpdateForm
     template_name = 'users/registration/user-update.html'
     success_message = _('Your profile has been updated')
     success_url = reverse_lazy('users_list')

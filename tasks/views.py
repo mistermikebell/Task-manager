@@ -60,4 +60,5 @@ class UserTasksListView(FilterView):
         return context
 
     def get_queryset(self):
-        return Task.objects.filter(executor=self.request.user)
+        if self.request.user.is_authenticated:
+            return Task.objects.filter(executor=self.request.user)

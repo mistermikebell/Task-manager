@@ -1,23 +1,25 @@
-from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
 from django.urls import reverse
+from users.models import UserModel
 
 
 class UsersTest(TestCase):
 
     def setUp(self):
-        self.test_user = User.objects.create_user(username='test_user',
-                                                  password='1Password!')
+        self.test_user = UserModel.objects.create_user(username='test_user',
+                                                       password='1Password!')
 
     def test_signup(self):
         credentials = {'username': 'new_user',
+                       'first_name': 'test',
+                       'last_name': 'test',
                        'email': 'test@test.com',
                        'password1': '1Password!',
                        'password2': '1Password!'}
         response = self.client.post('/users/create/', credentials, follow=True)
         self.assertRedirects(response, '/login/')
-        self.assertEqual(User.objects.get(username='new_user').username,
+        self.assertEqual(UserModel.objects.get(username='new_user').username,
                          'new_user')
 
     def test_login(self):
@@ -50,7 +52,7 @@ class UsersTest(TestCase):
             self.test_user.refresh_from_db()
 
     def test_permission(self):
-        self.test_user2 = User.objects.create_user(username='test_user2',
+        self.test_user2 = UserModel.objects.create_user(username='test_user2',
                                                    password='1Password!')
         self.client.login(username='test_user', password='1Password!')
         response = self.client.post(reverse('update',
