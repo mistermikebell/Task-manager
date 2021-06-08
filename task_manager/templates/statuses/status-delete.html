@@ -6,4 +6,5 @@
         {% csrf_token %}
         <p>{% trans "Are you sure you want to delete status" %} {{ object.name }}?</p>
         <input type="submit" value="{% trans 'Yes, delete' %}">
-{% endblock %}
+    </form>
+        {% endblock %}
