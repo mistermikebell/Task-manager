@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-03 00:30+0300\n"
+"POT-Creation-Date: 2021-06-09 00:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/mixins.py:10
+#: task_manager/mixins.py:11
 msgid "You do not have access to this page"
 msgstr "У вас нет доступа к этой странице"
 
@@ -73,19 +73,21 @@ msgstr "Регистрация"
 msgid "Add your tasks and manage them in a very simple way"
 msgstr "Добавляйте свои задачи и управляйте ими"
 
-#: task_manager/templates/index.html:12
+#: task_manager/templates/index.html:13
+#: task_manager/templates/tasks/task-creation.html:8
+#: task_manager/templates/tasks/tasks-list.html:10
+msgid "Create a new task"
+msgstr "Создать задачу"
+
+#: task_manager/templates/index.html:16
 msgid "My tasks"
 msgstr "Мои задачи"
 
-#: task_manager/templates/index.html:16
-msgid "Add a new task"
-msgstr "Добавь новую задачу"
-
-#: task_manager/templates/index.html:39
+#: task_manager/templates/index.html:36
 msgid "Done"
 msgstr "Выполнено"
 
-#: task_manager/templates/index.html:47
+#: task_manager/templates/index.html:44
 #: task_manager/templates/tasks/tasks-list.html:57
 msgid "There are no tasks."
 msgstr "Задач нет"
@@ -194,11 +196,6 @@ msgstr "Имя"
 msgid "Created by"
 msgstr "Автор"
 
-#: task_manager/templates/tasks/task-creation.html:8
-#: task_manager/templates/tasks/tasks-list.html:10
-msgid "Create a new task"
-msgstr "Создать задачу"
-
 #: task_manager/templates/tasks/task-delete.html:7
 msgid "Are you sure you want to delete task"
 msgstr "Вы действительно хотите удалить задачу?"
@@ -274,6 +271,9 @@ msgstr "Имя пользователя"
 #: task_manager/templates/users/users-list.html:13
 msgid "Full name"
 msgstr "Полное имя"
+
+#~ msgid "Add a new task"
+#~ msgstr "Добавь новую задачу"
 
 #~ msgid "Show"
 #~ msgstr "Показать"
