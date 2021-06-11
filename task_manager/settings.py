@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
-ROOT_URLCONF = 'task_manager.urls'
+# ROOT_URLCONF = 'task_manager.urls'
 
 TEMPLATES = [
     {
