@@ -29,16 +29,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'task_manager',
-    # 'users',
-    # 'statuses',
-    # 'tasks',
-    # 'labels',
+    'task_manager',
+    'users',
+    'statuses',
+    'tasks',
+    'labels',
     'crispy_forms',
     'django_filters'
 ]
 
-# AUTH_USER_MODEL = 'users.UserModel'
+AUTH_USER_MODEL = 'users.UserModel'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
-# ROOT_URLCONF = 'task_manager.urls'
+ROOT_URLCONF = 'task_manager.urls'
 
 TEMPLATES = [
     {
