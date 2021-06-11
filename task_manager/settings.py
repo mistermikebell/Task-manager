@@ -30,10 +30,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'task_manager',
-    'users',
-    'statuses',
-    'tasks',
-    'labels',
+    # 'users',
+    # 'statuses',
+    # 'tasks',
+    # 'labels',
     'crispy_forms',
     'django_filters'
 ]
