@@ -53,7 +53,7 @@ class UsersTest(TestCase):
 
     def test_permission(self):
         self.test_user2 = UserModel.objects.create_user(username='test_user2',
-                                                   password='1Password!')
+                                                        password='1Password!')
         self.client.login(username='test_user', password='1Password!')
         response = self.client.post(reverse('update',
                                             args=str(self.test_user2.id)),
