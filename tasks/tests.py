@@ -51,7 +51,9 @@ class TasksTest(TestCase):
 
     def test_delete(self):
         test_task_id = self.test_status.id
-        self.client.post(reverse('task_delete', args=str(test_task_id)))
+        response = self.client.post(reverse('task_delete', args=str(test_task_id)),
+                                    follow=True)
+        self.assertRedirects(response, reverse('tasks_list'))
         with self.assertRaises(ObjectDoesNotExist):
             Task.objects.get(id=test_task_id)
 

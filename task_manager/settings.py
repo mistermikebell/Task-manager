@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'task_manager',
-    'users',
+    # 'users',
     'statuses',
     'tasks',
     'labels',
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django_filters'
 ]
 
-AUTH_USER_MODEL = 'users.UserModel'
+# AUTH_USER_MODEL = 'users.UserModel'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
