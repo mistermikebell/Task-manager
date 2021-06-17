@@ -40,7 +40,8 @@ class UsersListView(generic.ListView):
 
 class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.edit.UpdateView):
     model = User
-    form_class = UserUpdateForm
+    fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
+    # form_class = UserUpdateForm
     template_name = 'users/registration/user-update.html'
     success_message = _('Your profile has been updated')
     success_url = reverse_lazy('users_list')

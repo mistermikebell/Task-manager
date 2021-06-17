@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Label
+from odels import Label
 
 
 class UpdateLabelForm(forms.ModelForm):
