@@ -1,17 +1,20 @@
 from django.contrib import messages
+from django.contrib.auth import get_user_model
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
+
+from .forms import SignUpForm, UserUpdateForm
 from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
-from users.forms import SignUpForm, UserUpdateForm
-from users.models import UserModel
+
+User = get_user_model()
 
 
 class RegisterUserView(SuccessMessageMixin, generic.CreateView):
-    model = UserModel
+    model = User
     form_class = SignUpForm
     template_name = 'users/registration/user-register.html'
     success_url = reverse_lazy('login')
@@ -31,12 +34,12 @@ class LogoutUserView(SuccessMessageMixin, LogoutView):
 
 
 class UsersListView(generic.ListView):
-    model = UserModel
+    model = User
     template_name = 'users/users-list.html'
 
 
 class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.edit.UpdateView):
-    model = UserModel
+    model = User
     form_class = UserUpdateForm
     template_name = 'users/registration/user-update.html'
     success_message = _('Your profile has been updated')
@@ -52,7 +55,7 @@ class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.ed
 
 class DeleteUserView(LoginRequiredMixinRedirect, generic.DeleteView,
                      DeletionErrorMixin):
-    model = UserModel
+    model = User
     template_name = 'users/registration/user-delete.html'
     success_url = reverse_lazy('users_list')
     success_message = _('Your profile has been deleted')

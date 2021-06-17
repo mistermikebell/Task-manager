@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+
 from tasks import views
 from users import views as users_views
 

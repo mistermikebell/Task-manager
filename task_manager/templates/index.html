@@ -40,6 +40,17 @@
         </div>
         {% endfor %}
 
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                  <p class="card-text"><b>Author:</b> {{ users.executable_tasks.all }} </p>
+                <a href="#" class="btn btn-primary">{% trans 'Done' %}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {% else %}
             <p>{% trans 'There are no tasks.' %}</p>
         {% endif %}

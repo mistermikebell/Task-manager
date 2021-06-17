@@ -1,7 +1,8 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
 from django.urls import reverse
-from users.models import UserModel
+
+from .models import UserModel
 
 
 class UsersTest(TestCase):

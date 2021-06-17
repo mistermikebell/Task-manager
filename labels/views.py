@@ -28,7 +28,8 @@ class LabelListView(LoginRequiredMixinRedirect, generic.ListView):
 class LabelUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.UpdateView):
     model = Label
     template_name = 'labels/label-update.html'
-    form_class = UpdateLabelForm
+    fields = ['name', 'description']
+    # form_class = UpdateLabelForm
     success_message = _('Label has been updated successfully')
     success_url = reverse_lazy('labels_list')
 

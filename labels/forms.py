@@ -1,5 +1,6 @@
 from django import forms
-from labels.models import Label
+
+from .models import Label
 
 
 class UpdateLabelForm(forms.ModelForm):

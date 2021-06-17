@@ -1,9 +1,10 @@
+from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
+
 from labels.models import Label
 from statuses.models import Status
-from users.models import UserModel
 
 
 class Task(models.Model):
@@ -16,9 +17,9 @@ class Task(models.Model):
     description = models.TextField(blank=True,
                                    verbose_name=_('Description'))
     created = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(UserModel, related_name='tasks',
-                               on_delete=models.CASCADE)
-    executor = models.ForeignKey(UserModel, related_name='executable_tasks',
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='tasks',
+                               on_delete=models.PROTECT)
+    executor = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='executable_tasks',
                                  on_delete=models.PROTECT, blank=True, null=True,
                                  verbose_name=_('Executor'))
 

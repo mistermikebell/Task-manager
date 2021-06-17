@@ -1,9 +1,10 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
 from django.urls import reverse
+
+from .models import Task
 from labels.models import Label
 from statuses.models import Status
-from tasks.models import Task
 from users.models import UserModel
 
 

@@ -1,10 +1,10 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import ProtectedError
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import DeletionMixin
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class LoginRequiredMixinRedirect(LoginRequiredMixin):
