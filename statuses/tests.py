@@ -2,7 +2,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Status
+from statuses.models import Status
 from users.models import UserModel
 
 

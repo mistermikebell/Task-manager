@@ -3,8 +3,8 @@ import django_filters
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Task
 from labels.models import Label
+from tasks.models import Task
 
 
 class TasksFilter(django_filters.FilterSet):

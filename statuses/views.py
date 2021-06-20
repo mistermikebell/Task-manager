@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Status
+from statuses.models import Status
 from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
 
 

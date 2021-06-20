@@ -5,9 +5,9 @@ from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django_filters.views import FilterView
 
-from .filters import TasksFilter
-from .models import Task
 from statuses.models import Status
+from tasks.filters import TasksFilter
+from tasks.models import Task
 from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
 
 

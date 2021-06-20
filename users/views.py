@@ -7,14 +7,12 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from .forms import SignUpForm, UserUpdateForm
 from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
-
-User = get_user_model()
+from users.forms import SignUpForm
 
 
 class RegisterUserView(SuccessMessageMixin, generic.CreateView):
-    model = User
+    model = get_user_model()
     form_class = SignUpForm
     template_name = 'users/registration/user-register.html'
     success_url = reverse_lazy('login')
@@ -34,13 +32,13 @@ class LogoutUserView(SuccessMessageMixin, LogoutView):
 
 
 class UsersListView(generic.ListView):
-    model = User
+    model = get_user_model()
     template_name = 'users/users-list.html'
 
 
 class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.edit.UpdateView):
-    model = User
-    form_class = UserUpdateForm
+    model = get_user_model()
+    form_class = SignUpForm
     template_name = 'users/registration/user-update.html'
     success_message = _('Your profile has been updated')
     success_url = reverse_lazy('users_list')
@@ -55,7 +53,7 @@ class UpdateUserView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.ed
 
 class DeleteUserView(LoginRequiredMixinRedirect, generic.DeleteView,
                      DeletionErrorMixin):
-    model = User
+    model = get_user_model()
     template_name = 'users/registration/user-delete.html'
     success_url = reverse_lazy('users_list')
     success_message = _('Your profile has been deleted')
