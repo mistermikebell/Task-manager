@@ -6,7 +6,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from task_manager.mixins import DeletionErrorMixin
+from task_manager.mixins import DeletionErrorMixin, AccessValidationMixin
 from users.mixins import NoPermissionMixin
 from users.forms import SignUpForm
 
@@ -36,7 +36,7 @@ class UsersListView(generic.ListView):
     template_name = 'users/users-list.html'
 
 
-class UpdateUserView(NoPermissionMixin,
+class UpdateUserView(AccessValidationMixin,
                      SuccessMessageMixin, generic.edit.UpdateView):
     model = get_user_model()
     form_class = SignUpForm
@@ -45,7 +45,7 @@ class UpdateUserView(NoPermissionMixin,
     success_url = reverse_lazy('users_list')
 
 
-class DeleteUserView(NoPermissionMixin,
+class DeleteUserView(AccessValidationMixin,
                      generic.DeleteView, DeletionErrorMixin):
     model = get_user_model()
     template_name = 'users/registration/user-delete.html'
