@@ -9,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class LoginRequiredMixinRedirect(LoginRequiredMixin):
     permission_denied_message = _('You do not have access to this page')
+    login_url = '/login/'
 
     def dispatch(self, request, *args, **kwargs):
         self.redirect_url = reverse_lazy('login')
