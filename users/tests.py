@@ -58,9 +58,17 @@ class UsersTest(TestCase):
         self.client.login(username='test_user', password='1Password!')
         response = self.client.post(reverse('update',
                                             args=str(self.test_user2.id)),
+                                    {'username': 'updated_test_user2',
+                                     'first_name': 'test',
+                                     'last_name': 'test',
+                                     'email': 'email@email.com',
+                                     'password1': '1Password!',
+                                     'password2': '1Password!'},
                                     follow=True)
         self.assertRedirects(response, '/users/')
+        self.assertTrue(self.test_user2.username, 'test_user2')
         response = self.client.post(reverse('delete',
                                             args=str(self.test_user2.id)),
                                     follow=True)
         self.assertRedirects(response, '/users/')
+        self.assertTrue(UserModel.objects.filter(id=self.test_user2.id).exists())

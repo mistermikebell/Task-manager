@@ -33,6 +33,7 @@ class DeletionErrorMixin(DeletionMixin):
 
 
 class NoPermissionMixin(UserPassesTestMixin):
+    login_url = '/users/'
 
     def test_func(self):
         return self.get_object().id == self.request.user.id
