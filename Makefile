@@ -21,7 +21,7 @@ selfcheck:
 run:
 	poetry run python manage.py
 
-preparetranslate:
+makemessages:
 	poetry run django-admin makemessages -l ru
 
 translate:

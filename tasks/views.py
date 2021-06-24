@@ -1,4 +1,6 @@
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponseRedirect
 from django.views import generic
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
@@ -47,6 +49,13 @@ class TaskDeleteView(LoginRequiredMixinRedirect, DeletionErrorMixin, generic.Del
     template_name = 'tasks/task-delete.html'
     success_url = reverse_lazy('tasks_list')
     success_message = _('Task has been deleted')
+
+    def dispatch(self, request, *args, **kwargs):
+        if self.get_object().author.id != request.user.id:
+            messages.error(request,
+                           _('A task can be deleted by its author only'))
+            return HttpResponseRedirect(reverse_lazy('users_list'))
+        return super().dispatch(request, *args, **kwargs)
 
 
 class UserTasksListView(FilterView):

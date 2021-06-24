@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-09 00:00+0300\n"
+"POT-Creation-Date: 2021-06-24 11:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,33 +28,32 @@ msgstr "Имя"
 msgid "Last name"
 msgstr "Фамилия"
 
-#: users/views.py:18
+#: users/views.py:19
 msgid "You have been signed up!"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: users/views.py:23
+#: users/views.py:24
 msgid "You are logged in!"
 msgstr "Вы залогинены"
 
-#: users/views.py:29
+#: users/views.py:30
 msgid "You are logged out!"
 msgstr "Вы разлогинены"
 
-#: users/views.py:42
+#: users/views.py:45
 msgid "Your profile has been updated"
 msgstr "Пользователь успешно изменён"
 
-#: users/views.py:48
-msgid "You are not allowed to edit another user profile"
-msgstr "У вас нет прав для изменения другого пользователя."
-
-#: users/views.py:58
+#: users/views.py:65
 msgid "Your profile has been deleted"
 msgstr "Пользователь успешно удалён"
 
-#: users/views.py:59
+#: users/views.py:66
 msgid "Cannot delete this user, because the user is attached to an object!"
 msgstr "Невозможно удалить пользователя, потому что он используется"
+
+#~ msgid "You are not allowed to edit another user profile"
+#~ msgstr "У вас нет прав для изменения другого пользователя."
 
 #~ msgid "Password"
 #~ msgstr "Пароль"
