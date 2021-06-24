@@ -7,35 +7,39 @@ from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 
+class RedirectMixin:
+    def handle_no_permission(self):
+        messages.error(self.request, self.permission_denied_message)
+        return HttpResponseRedirect(self.redirect_url)
+
+
 class LoginRequiredMixinRedirect(LoginRequiredMixin):
-    permission_denied_message = _('You do not have access to this page')
     login_url = '/login/'
 
     def dispatch(self, request, *args, **kwargs):
+        self.permission_denied_message = _('You do not have access to this page')
         self.redirect_url = reverse_lazy('login')
-        if not request.user.is_authenticated:
-            messages.error(self.request, self.permission_denied_message)
-            self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)
 
 
 class NoPermissionMixin(UserPassesTestMixin):
-    permission_denied_message = _('You do not have access to this page')
-
     def test_func(self):
         return self.get_object().id == self.request.user.id
 
     def dispatch(self, request, *args, **kwargs):
+        self.permission_denied_message = _('You do not have access to this page')
         self.redirect_url = reverse_lazy('users_list')
-        if not self.get_test_func()():
-            messages.error(self.request, self.permission_denied_message)
-            self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)
 
 
-class RedirectMixin(LoginRequiredMixinRedirect, NoPermissionMixin):
-    def handle_no_permission(self):
-        return HttpResponseRedirect(self.redirect_url)
+class AuthorValidatingMixin(UserPassesTestMixin):
+    def test_func(self):
+        return self.get_object().author.id == self.request.user.id
+
+    def dispatch(self, request, *args, **kwargs):
+        self.permission_denied_message = _('A task can be deleted by its author only')
+        self.redirect_url = reverse_lazy('tasks_list')
+        return super().dispatch(request, *args, **kwargs)
 
 
 class DeletionErrorMixin(DeletionMixin):
