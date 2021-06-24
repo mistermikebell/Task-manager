@@ -54,7 +54,7 @@ class TaskDeleteView(LoginRequiredMixinRedirect, DeletionErrorMixin, generic.Del
         if self.get_object().author.id != request.user.id:
             messages.error(request,
                            _('A task can be deleted by its author only'))
-            return HttpResponseRedirect(reverse_lazy('users_list'))
+            return HttpResponseRedirect(reverse_lazy('tasks_list'))
         return super().dispatch(request, *args, **kwargs)
 
 
