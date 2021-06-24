@@ -66,7 +66,7 @@ class UsersTest(TestCase):
                                      'password2': '1Password!'},
                                     follow=True)
         self.assertRedirects(response, '/users/')
-        self.assertTrue(self.test_user2.username, 'test_user2')
+        self.assertEqual(self.test_user2.username, 'test_user2')
         response = self.client.post(reverse('delete',
                                             args=str(self.test_user2.id)),
                                     follow=True)
