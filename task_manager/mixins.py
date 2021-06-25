@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import ProtectedError
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import DeletionMixin
@@ -7,38 +7,17 @@ from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 
-class RedirectMixin:
+class NoPermissionRedirectMixin:
     def handle_no_permission(self):
         messages.error(self.request, self.permission_denied_message)
         return HttpResponseRedirect(self.redirect_url)
 
 
 class LoginRequiredMixinRedirect(LoginRequiredMixin):
-    login_url = '/login/'
-
     def dispatch(self, request, *args, **kwargs):
-        self.permission_denied_message = _('You do not have access to this page')
+        self.permission_denied_message = _('You do not have'
+                                           ' access to this page')
         self.redirect_url = reverse_lazy('login')
-        return super().dispatch(request, *args, **kwargs)
-
-
-class NoPermissionMixin(UserPassesTestMixin):
-    def test_func(self):
-        return self.get_object().id == self.request.user.id
-
-    def dispatch(self, request, *args, **kwargs):
-        self.permission_denied_message = _('You do not have access to this page')
-        self.redirect_url = reverse_lazy('users_list')
-        return super().dispatch(request, *args, **kwargs)
-
-
-class AuthorValidatingMixin(UserPassesTestMixin):
-    def test_func(self):
-        return self.get_object().author.id == self.request.user.id
-
-    def dispatch(self, request, *args, **kwargs):
-        self.permission_denied_message = _('A task can be deleted by its author only')
-        self.redirect_url = reverse_lazy('tasks_list')
         return super().dispatch(request, *args, **kwargs)
 
 

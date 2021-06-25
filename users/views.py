@@ -6,8 +6,10 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from task_manager.mixins import DeletionErrorMixin, RedirectMixin, LoginRequiredMixinRedirect, NoPermissionMixin
+from task_manager.mixins import (DeletionErrorMixin, NoPermissionRedirectMixin,
+                                 LoginRequiredMixinRedirect)
 from users.forms import SignUpForm
+from users.mixins import NoPermissionMixin
 
 
 class RegisterUserView(SuccessMessageMixin, generic.CreateView):
@@ -35,8 +37,9 @@ class UsersListView(generic.ListView):
     template_name = 'users/users-list.html'
 
 
-class UpdateUserView(RedirectMixin, LoginRequiredMixinRedirect, NoPermissionMixin,
-                     SuccessMessageMixin, generic.edit.UpdateView):
+class UpdateUserView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                     NoPermissionMixin, SuccessMessageMixin,
+                     generic.edit.UpdateView):
     model = get_user_model()
     form_class = SignUpForm
     template_name = 'users/registration/user-update.html'
@@ -44,8 +47,9 @@ class UpdateUserView(RedirectMixin, LoginRequiredMixinRedirect, NoPermissionMixi
     success_url = reverse_lazy('users_list')
 
 
-class DeleteUserView(RedirectMixin, LoginRequiredMixinRedirect, NoPermissionMixin,
-                     generic.DeleteView, DeletionErrorMixin):
+class DeleteUserView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                     NoPermissionMixin, generic.DeleteView,
+                     DeletionErrorMixin):
     model = get_user_model()
     template_name = 'users/registration/user-delete.html'
     success_url = reverse_lazy('users_list')

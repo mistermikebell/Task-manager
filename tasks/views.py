@@ -8,10 +8,14 @@ from django_filters.views import FilterView
 from statuses.models import Status
 from tasks.filters import TasksFilter
 from tasks.models import Task
-from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin, AuthorValidatingMixin, RedirectMixin
+from tasks.mixins import NonAuthorPermissionMixin
+from task_manager.mixins import (NoPermissionRedirectMixin,
+                                 LoginRequiredMixinRedirect,
+                                 DeletionErrorMixin)
 
 
-class TaskCreateView(RedirectMixin, LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
+class TaskCreateView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                     SuccessMessageMixin, CreateView):
     model = Task
     fields = ['name', 'status', 'labels', 'description', 'executor']
     template_name = 'tasks/task-creation.html'
@@ -23,18 +27,21 @@ class TaskCreateView(RedirectMixin, LoginRequiredMixinRedirect, SuccessMessageMi
         return super().form_valid(form)
 
 
-class TasksListView(RedirectMixin, LoginRequiredMixinRedirect, FilterView):
+class TasksListView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                    FilterView):
     model = Task
     template_name = 'tasks/tasks-list.html'
     filterset_class = TasksFilter
 
 
-class TaskDetailView(RedirectMixin, LoginRequiredMixinRedirect, generic.DetailView):
+class TaskDetailView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                     generic.DetailView):
     model = Task
     template_name = 'tasks/task-details.html'
 
 
-class TaskUpdateView(RedirectMixin, LoginRequiredMixinRedirect, SuccessMessageMixin, generic.UpdateView):
+class TaskUpdateView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                     SuccessMessageMixin, generic.UpdateView):
     model = Task
     template_name = 'tasks/task-update.html'
     fields = ['name', 'status', 'labels', 'description', 'executor']
@@ -42,8 +49,9 @@ class TaskUpdateView(RedirectMixin, LoginRequiredMixinRedirect, SuccessMessageMi
     success_url = reverse_lazy('tasks_list')
 
 
-class TaskDeleteView(RedirectMixin, LoginRequiredMixinRedirect, AuthorValidatingMixin,
-                     DeletionErrorMixin, generic.DeleteView):
+class TaskDeleteView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                     NonAuthorPermissionMixin, DeletionErrorMixin,
+                     generic.DeleteView):
     model = Task
     template_name = 'tasks/task-delete.html'
     success_url = reverse_lazy('tasks_list')

@@ -5,10 +5,13 @@ from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from statuses.models import Status
-from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
+from task_manager.mixins import (NoPermissionRedirectMixin,
+                                 LoginRequiredMixinRedirect,
+                                 DeletionErrorMixin)
 
 
-class StatusCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
+class StatusCreateView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                       SuccessMessageMixin, CreateView):
     model = Status
     fields = ['name']
     template_name = 'statuses/status-creation.html'
@@ -20,12 +23,14 @@ class StatusCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateVi
         return super().form_valid(form)
 
 
-class StatusesListView(LoginRequiredMixinRedirect, generic.ListView):
+class StatusesListView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                       generic.ListView):
     model = Status
     template_name = 'statuses/statuses-list.html'
 
 
-class StatusUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.UpdateView):
+class StatusUpdateView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                       SuccessMessageMixin, generic.UpdateView):
     model = Status
     template_name = 'statuses/status-update.html'
     fields = ['name']
@@ -33,7 +38,8 @@ class StatusUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.
     success_url = reverse_lazy('statuses_list')
 
 
-class StatusDeleteView(LoginRequiredMixinRedirect, generic.DeleteView,
+class StatusDeleteView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                       generic.DeleteView,
                        DeletionErrorMixin):
     model = Status
     template_name = 'statuses/status-delete.html'

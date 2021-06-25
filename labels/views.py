@@ -5,10 +5,13 @@ from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from labels.models import Label
-from task_manager.mixins import LoginRequiredMixinRedirect, DeletionErrorMixin
+from task_manager.mixins import (LoginRequiredMixinRedirect,
+                                 DeletionErrorMixin,
+                                 NoPermissionRedirectMixin)
 
 
-class LabelCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateView):
+class LabelCreateView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                      SuccessMessageMixin, CreateView):
     model = Label
     fields = ['name', 'description']
     template_name = 'labels/label-creation.html'
@@ -20,12 +23,14 @@ class LabelCreateView(LoginRequiredMixinRedirect, SuccessMessageMixin, CreateVie
         return super().form_valid(form)
 
 
-class LabelListView(LoginRequiredMixinRedirect, generic.ListView):
+class LabelListView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                    generic.ListView):
     model = Label
     template_name = 'labels/labels-list.html'
 
 
-class LabelUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.UpdateView):
+class LabelUpdateView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                      SuccessMessageMixin, generic.UpdateView):
     model = Label
     template_name = 'labels/label-update.html'
     fields = ['name', 'description']
@@ -33,8 +38,8 @@ class LabelUpdateView(LoginRequiredMixinRedirect, SuccessMessageMixin, generic.U
     success_url = reverse_lazy('labels_list')
 
 
-class LabelDeleteView(LoginRequiredMixinRedirect, generic.DeleteView,
-                      DeletionErrorMixin):
+class LabelDeleteView(NoPermissionRedirectMixin, LoginRequiredMixinRedirect,
+                      generic.DeleteView, DeletionErrorMixin):
     model = Label
     template_name = 'labels/label-delete.html'
     success_url = reverse_lazy('labels_list')
